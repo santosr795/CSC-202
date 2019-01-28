@@ -1,6 +1,6 @@
 import java.util.*;
 public class BigInt {
-	private ArrayList <String> bigArray = new ArrayList<String>(); 
+	private ArrayList <Integer> bigArray = new ArrayList<Integer>(); 
 	private String bigInt; 
 	private int arrayIndex = 0; 
 	private Boolean positive;
@@ -10,14 +10,17 @@ public class BigInt {
 		//BigInt b1 = new BigInt("-0");
 		//BigInt b1 = new BigInt("+");// error
 		//BigInt b1 = new BigInt("-");// error
-		BigInt b1 = new BigInt(	"-44444444445555555555666666666677777777770000000000");
+		BigInt b1 = new BigInt(	"-444444444455555555556666666666777777777700000000121");
 		System.out.println("b1 it " +b1);
 	}
 	BigInt(String stringInteger){
+		set(stringInteger); 
+			}
+	private void set(String stringInteger) {
 		char location ; 
 		String 	aSubstring =null ;
 		for(int index = 0; index < stringInteger.length(); index++) {
-			location = stringInteger.charAt(index);
+			location = stringInteger.charAt(index) ;
 			if (location == 43 && stringInteger.substring(0, 1).equals("+")) {
 				if(stringInteger.length() ==1 ) {
 					throw new StringInputErrorException(stringInteger + " its not a valid input" );
@@ -32,6 +35,7 @@ public class BigInt {
 					if (location < 48 || location > 57) {
 						throw new StringInputErrorException(stringInteger + " its not a valid input" );
 					}
+					//return aSubstring; 
 				}
 				//bigArray.add(arrayIndex, setAndRemoveSignIfItIsThere(stringInteger)); 
 				//arrayIndex++; 
@@ -49,6 +53,7 @@ public class BigInt {
 					if (location < 48 || location > 57) {
 						throw new StringInputErrorException(stringInteger + " its not a valid input" );
 					}
+				
 				}
 				//bigArray.add(arrayIndex, setAndRemoveSignIfItIsThere(stringInteger)); 
 				//arrayIndex++; 
@@ -58,15 +63,21 @@ public class BigInt {
 			}
 			
 		}
-		this.bigInt = stringInteger; 
-		if(aSubstring !=null) {
-			this.bigInt= aSubstring;
+		char i; 
+		this.bigInt = correctInput(stringInteger); 
+		int arrayIndex = this.bigInt.length(); 
+		for(int index = 0; index < this.bigInt.length(); index++) {
+			arrayIndex = arrayIndex -1;
+			//System.out.println(arrayIndex + this.bigInt.length());
+			i = this.bigInt.charAt(arrayIndex); 
+			bigArray.add(index,Character.getNumericValue(i));
+		 
 		}
-		
-		bigArray.add(arrayIndex, this.bigInt); 
-		arrayIndex++; 
-		System.out.println("it should End here " + this.bigInt);
-		//System.exit(0);
+//		this.bigInt = stringInteger; 
+//		if(aSubstring !=null) {
+//			return aSubstring;
+//		}
+//		return stringInteger; 
 	}
 //	private void set(String aBigInt) {
 //		try {
