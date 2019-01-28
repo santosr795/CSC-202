@@ -63,8 +63,11 @@ public class BigInt {
 			}
 			
 		}
-		char i; 
-		this.bigInt = correctInput(stringInteger); 
+		char i;
+		this.bigInt=stringInteger; 
+		if(aSubstring !=null) {
+			this.bigInt= aSubstring;
+		}
 		int arrayIndex = this.bigInt.length(); 
 		for(int index = 0; index < this.bigInt.length(); index++) {
 			arrayIndex = arrayIndex -1;
