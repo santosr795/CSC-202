@@ -5,17 +5,25 @@ public class BigInt {
 	private int arrayIndex = 0; 
 	private boolean positive = true;
 	public static void main(String args []) {
-		//BigInt b1 = new BigInt("1000000");
-		//BigInt b1 = new BigInt("+0");
-		//BigInt b1 = new BigInt("-0");
-		//BigInt b1 = new BigInt("+");// error
-		//BigInt b1 = new BigInt("-");// error
-		BigInt b1 = new BigInt(	"990");
-		System.out.println("b1 it " +b1);
-		BigInt b2 = new BigInt("31"); 
-		BigInt b3; 
-		b3 = b1.subtract(b2);
-		System.out.println("b3 it " +b3);
+
+  	BigInt intValue1 = new BigInt(1234567);
+  
+    	System.out.println("integer value is " + intValue1);
+    	BigInt intValue2 = new BigInt(-1234567);
+    	System.out.println("integer value is " + intValue2);
+    	BigInt intValue3 = new BigInt(-0);
+    	System.out.println("integer value is " + intValue3);
+    	
+    			
+    	BigInt b1; 
+    	BigInt b2; 
+    	BigInt b3; 
+    	b3 = intValue1.add(intValue2);
+    	System.out.println("0) sum b3 is " + intValue1 +" + " + intValue2 + " = " + b3);
+    	b1 = new BigInt("-1");
+    	b2 = new BigInt("+0");
+    	b3 = b1.add(b2);
+    
 	}
 	BigInt(String stringInteger){
 		set(stringInteger); 
@@ -72,6 +80,7 @@ public class BigInt {
 		if(aSubstring !=null) {
 			this.bigInt= aSubstring;
 		}
+	
 		int arrayIndex = this.bigInt.length(); 
 		for(int index = 0; index < this.bigInt.length(); index++) {
 			arrayIndex = arrayIndex -1;
@@ -113,6 +122,7 @@ public class BigInt {
 		BigInt b1; 
 		 int i = arrayString.size() -1; 
 		for(int index = 0; index < arrayString.size(); index++) {
+			//System.out.println("The value of the array "+ String.valueOf(arrayString.get(i)));
 			 newString = newString + String.valueOf(arrayString.get(i)); 
 			i --; 
 		}
@@ -126,7 +136,7 @@ public class BigInt {
 		
 	}
 	BigInt(int Integer){
-		new BigInt(String.valueOf(Integer));
+		set(String.valueOf(Integer));
 		
 		
 	}
@@ -162,7 +172,7 @@ public class BigInt {
 //					}
 //			
 //			}
-			System.out.println("Test final SetAndRemove method default return value equals " + number.substring(1,number.length()));
+			//System.out.println("Test final SetAndRemove method default return value equals " + number.substring(1,number.length()));
 				return number; 
 	}
 	public String toString() {
@@ -175,8 +185,8 @@ public class BigInt {
 	public BigInt add(BigInt anInteger) {
 		BigInt answer = null; 
 		//if(this.bigArray.size() <= bigArray.size()) {
-			System.out.println("Testing add compering sizes");
-			System.out.println("Value of this.positive " + String.valueOf(this.positive) + "\nValue of other positive " + String.valueOf(anInteger.positive));
+			//System.out.println("Testing add compering sizes");
+			//System.out.println("Value of this.positive " + String.valueOf(this.positive) + "\nValue of other positive " + String.valueOf(anInteger.positive));
 			if(this.positive == true && anInteger.positive == true ) {
 				//add
 				//System.out.println("Checking Boolean Wrapper ++");
@@ -242,12 +252,12 @@ public class BigInt {
 			//answer = new BigInt( answer.setAndRemoveSignIfItIsThere(bigInt)); 
 		}
 		BigInt FinalAnswer;
-		System.out.println(answer.bigInt);
+		//System.out.println(answer.bigInt);
 		return FinalAnswer = new BigInt(answer);
 		
 	}
 	private BigInt adding(BigInt integer){
-		BigInt returnValue; 
+		BigInt returnValue;  
 		 ArrayList<Integer> answer = new ArrayList<Integer>();
 		 int theLengthOfAnArray = 0; 
 		 if(this.bigArray.size() > integer.bigArray.size()) {
@@ -271,7 +281,6 @@ public class BigInt {
 					 carrier = 1; 
 					 answer.add(index, newValue);
 				 }
-				  
 				 else {
 					 answer.add(index, newValue); 
 				 }
@@ -281,8 +290,6 @@ public class BigInt {
 				 answer.remove(index); 
 				 answer.add(index, newValue);					 
 			 }
-			
-			 
 			 }
 			 catch(Exception e){
 				 
@@ -309,9 +316,15 @@ public class BigInt {
 		 if(this.positive == false && integer.positive == false) {
 			 returnValue.positive = false; 
 		 }
+		 else if(integer.positive == false && integer.bigArray.size() > this.bigArray.size()) {
+			 returnValue.positive=false;
+		 }
+		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
+			 returnValue.positive=false;
+		 }
 			 
 		 //System.out.println(answer);
-		 System.out.println("returnValue its equals to "+ returnValue.toString());
+		// System.out.println("returnValue its equals to "+ returnValue.toString());
 		return returnValue ;
 	}
  private BigInt subtracting(BigInt integer) {
@@ -358,30 +371,45 @@ public class BigInt {
 		 if(this.bigArray.size() > integer.bigArray.size()){
 			 
 			 newValue = this.bigArray.get(index); 
-			 if(carrier == 1 ) {
+			 if(carrier == 1 && this.bigArray.get(index) != 0 && index != theLengthOfAnArray-1) {
 				 newValue = newValue - 1; 
+				 //System.out.println("The value of integer inside tbe subtract method " +  newValue);
+				 
 				 carrier = 0; 
 			 }
+			 
 			 answer.add(index, newValue);
 
 		 }
 		 else if (this.bigArray.size() < integer.bigArray.size()){
 			 newValue = this.bigArray.get(index); 
-			 if(carrier == 1 ) {
+			 if(carrier == 1 && this.bigArray.get(index) >0 ) {
 				 newValue = newValue - 1; 
+				 
 				 carrier = 0; 
 			 }
-			 answer.add(index, newValue);			 }
+			 //else(carrier)
+			
+			 else {
+			 answer.add(index, newValue);	
+			 }
+			 }
+		 if(this.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
+			 answer.remove(index);
+			 answer.remove(index -1); 
+			 answer.add(index-1, 9);
 		 }
+		 }
+		// System.out.println("The value of answer array by index " + answer.get(index));
 	 }
 	 returnValue = new BigInt(answer); 
 	 if(this.bigArray.size() > integer.bigArray.size() && this.positive == false) {
 		 returnValue.positive = false; 
 	 }
-	 else if(integer.bigArray.size() > this.bigArray.size() && this.positive == false) {
+	 else if(integer.bigArray.size() > this.bigArray.size() && integer.positive == false) {
 		 returnValue.positive = false; 
 	 }
 		 
-	 return returnValue;
+	 return returnValue; 
  	}
  }//End Class
