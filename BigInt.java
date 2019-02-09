@@ -20,9 +20,9 @@ public class BigInt {
     	BigInt b3; 
     //	b3 = intValue1.add(intValue2);
     	//System.out.println("0) sum b3 is " + intValue1 + " + " + intValue2.toString() + " = " + b3);
-    	b1 = new BigInt("5");
+    	b1 = new BigInt("0");
     	System.out.println("b1 its equals to " + b1); 
-    	b2 = new BigInt("-10");
+    	b2 = new BigInt("0");
        	System.out.println("b2 its equals to " + b2); 
     	b3 = b1.add(b2);
        	System.out.println("The sum of b1 and b2 its equaks to " + b3); 
@@ -89,7 +89,7 @@ public class BigInt {
 			//System.out.println("Testing add compering sizes");
 			//System.out.println("Value of this.positive " + String.valueOf(this.positive) + "\nValue of other positive " + String.valueOf(anInteger.positive));
 			if(this.positive == true && anInteger.positive == true ) {
-				//add
+				//add 
 				//System.out.println("Checking Boolean Wrapper ++");
 				answer = this.adding(anInteger);
 			}
@@ -115,7 +115,7 @@ public class BigInt {
 //			if(this.positive == true && anInteger.positive == true ) {
 //				System.out.println("Checking Boolean Wrapper ++");
 //			}
-//			else if (this.positive == true && anInteger.positive == false) {
+//			else if (t	his.positive == true && anInteger.positive == false) {
 //				System.out.println("Checking Boolean Wrapper +-");
 //			}
 //			else if(this.positive == false && anInteger.positive == true) {
@@ -347,7 +347,47 @@ public class BigInt {
 	 return returnValue; 
  	}
  private BigInt multiplying(BigInt integer) {
+	 BigInt returnValue; 
+	 ArrayList<Integer> answer = new ArrayList<Integer>(); 
+	 ArrayList<Integer> denominatorAnswer = new ArrayList<Integer>(); 
+	 int denominator, numerator, newValue,carrying;
+	  for(int index = 0; index <this.bigArray.size(); index++) {
+		  carrying = 0; 
+		  denominator  = integer.bigArray.get(index); 
+		  for(int innerIndex = 0; innerIndex < integer.bigArray.size(); innerIndex++){
+			  numerator = this.bigArray.get(innerIndex); 
+			  newValue = numerator * denominator; 
+			  if(carrying != 0) {
+				  newValue = newValue + carrying;
+				  carrying = 0; 
+			  }
+			  if(newValue > 9) {
+				  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+				  carryingValues = carry(newValue); 
+				  newValue = carryingValues.get(0); 
+				  carrying = carryingValues.get(carryingValues.size()-1); 
+			  }
+			  denominatorAnswer.add(index, newValue); 
+			 // answer.add(e)
+		  	}
+		  for(int innerIndex = 0; innerIndex < denominatorAnswer.size(); innerIndex++) {
+			  //Transferring values between two arrays will happened inside of here.
+		  }
+	  }
 	 return null; 
+ }
+ private ArrayList<Integer> carry(int integer) {
+	 ArrayList<Integer> answer = new ArrayList<Integer>();
+	 String stringInt = String.valueOf(integer), tempCharValue;
+	 char charValues; 
+	
+	 for(int index = 0; index< stringInt.length(); index++ ) {
+		 charValues = stringInt.charAt(index); 
+		 tempCharValue = String.valueOf(charValues);
+		 answer.add(index, Integer.parseInt(tempCharValue));
+	 }
+	 
+	 return answer; 
  }
 	private void set(String stringInteger) {
 		char location ; 
