@@ -20,15 +20,12 @@ public class BigInt {
     	BigInt b3; 
     //	b3 = intValue1.add(intValue2);
     	//System.out.println("0) sum b3 is " + intValue1 + " + " + intValue2.toString() + " = " + b3);
-    	b1 = new BigInt("0");
+    	b1 = new BigInt("136");
     	System.out.println("b1 its equals to " + b1); 
-    	b2 = new BigInt("0");
+    	b2 = new BigInt("438");
        	System.out.println("b2 its equals to " + b2); 
-    	b3 = b1.add(b2);
-       	System.out.println("The sum of b1 and b2 its equaks to " + b3); 
-//    	b1 = new BigInt(190);
-//    	b2 = new BigInt(180); 
-//    	b3 = b1.subtract(b2); 
+    	b3 = b1.multiply(b2);
+       
     
 	}
 	BigInt(String stringInteger){
@@ -158,6 +155,8 @@ public class BigInt {
 		
 	}
 	public BigInt multiply(BigInt integer) {
+		BigInt answer; 
+		answer = this.multiplying(integer); 
 		return null; 
 	}
 	private BigInt adding(BigInt integer){
@@ -347,10 +346,13 @@ public class BigInt {
 	 return returnValue; 
  	}
  private BigInt multiplying(BigInt integer) {
+	 Print(this.bigArray); 
+	 Print(integer.bigArray); 
 	 BigInt returnValue; 
 	 ArrayList<Integer> answer = new ArrayList<Integer>(); 
 	 ArrayList<Integer> denominatorAnswer = new ArrayList<Integer>(); 
-	 int denominator, numerator, newValue,carrying;
+	 int denominator, numerator, newValue = 0,carrying;
+	 int i = 0;
 	  for(int index = 0; index <this.bigArray.size(); index++) {
 		  carrying = 0; 
 		  denominator  = integer.bigArray.get(index); 
@@ -359,28 +361,65 @@ public class BigInt {
 			  newValue = numerator * denominator; 
 			  if(carrying != 0) {
 				  newValue = newValue + carrying;
+				  System.out.println("New");
 				  carrying = 0; 
 			  }
 			  if(newValue > 9) {
 				  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
 				  carryingValues = carry(newValue); 
-				  newValue = carryingValues.get(0); 
-				  carrying = carryingValues.get(carryingValues.size()-1); 
+				  newValue = carryingValues.get(1); 
+				  
+				  carrying = carryingValues.get(0); 
+				  System.out.println("Carrying values " + carryingValues + ". newValues " +newValue);
 			  }
-			  denominatorAnswer.add(index, newValue); 
-			 // answer.add(e)
+//			  answer.add(i, newValue);
+//			  i++; 
+			  System.out.println("The value of newValue " + newValue);
+//			  
 		  	}
-		  for(int innerIndex = 0; innerIndex < denominatorAnswer.size(); innerIndex++) {
-			  //Transferring values between two arrays will happened inside of here.
-		  }
+		
+		  
+//		  Print(denominatorAnswer); 
+//		  int i = index; 
+//		  for(int innerIndex = 0; innerIndex < denominatorAnswer.size(); innerIndex++) {
+//			  try {
+//				  if(answer.get(innerIndex) == null) {
+//					  answer.add(i,denominatorAnswer.get(innerIndex));
+//					  i++;
+//				  }
+//				  else {
+//					  newValue= answer.get(i) + denominatorAnswer.get(innerIndex); 
+//					  
+//					  i++;
+//					  if(carrying != 0) {
+//						  newValue = newValue + carrying;
+//						  carrying = 0; 
+//					  }
+//					  if(newValue > 9 ) {
+//						  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+//						  carryingValues = carry(newValue); 
+//						  newValue = carryingValues.get(0); 
+//						  carrying = carryingValues.get(carryingValues.size()-1); 
+//					  }
+//					  
+//				  }
+//			  }
+//			  catch(IndexOutOfBoundsException Exception) {
+//				  answer.add(i,denominatorAnswer.get(innerIndex));
+//				  i++;
+//			  }
+//			 
+//		  }
 	  }
+
+	  Print(answer);
 	 return null; 
  }
  private ArrayList<Integer> carry(int integer) {
 	 ArrayList<Integer> answer = new ArrayList<Integer>();
 	 String stringInt = String.valueOf(integer), tempCharValue;
 	 char charValues; 
-	
+	System.out.println("Carrying values " + integer);
 	 for(int index = 0; index< stringInt.length(); index++ ) {
 		 charValues = stringInt.charAt(index); 
 		 tempCharValue = String.valueOf(charValues);
@@ -490,6 +529,18 @@ public class BigInt {
 //			}
 		//	System.out.println("Test final SetAndRemove method default return value equals " + number);
 				return number; 
+	}
+	private void Print(ArrayList<Integer> integer) {
+	
+			String  newString= ""; 
+			BigInt b1; 
+			 int i = integer.size() -1; 
+			for(int index = 0; index < integer.size(); index++) {
+				//System.out.println("The value of the array "+ String.valueOf(arrayString.get(i)));
+				 newString = newString + String.valueOf(integer.get(i)); 
+				i --; 
+			}
+			System.out.println("The value of the array its equals to " + newString);
 	}
 	public String toString() {
 		if(this.positive == false) {
