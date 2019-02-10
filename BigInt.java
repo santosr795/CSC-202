@@ -361,7 +361,7 @@ public class BigInt {
 			  newValue = numerator * denominator; 
 			  if(carrying != 0) {
 				  newValue = newValue + carrying;
-				  System.out.println("New");
+				  System.out.println("");
 				  carrying = 0; 
 			  }
 			  if(newValue > 9) {
@@ -372,12 +372,18 @@ public class BigInt {
 				  carrying = carryingValues.get(0); 
 				  System.out.println("Carrying values " + carryingValues + ". newValues " +newValue);
 			  }
-//			  answer.add(i, newValue);
+			  
+			  answer.add(innerIndex, newValue);
 //			  i++; 
 			  System.out.println("The value of newValue " + newValue);
 //			  
 		  	}
-		
+		  if(carrying != 0) {
+			  answer.add(answer.size() , carrying); 
+		  }
+		  
+		  Print(answer);
+		  answer.clear();
 		  
 //		  Print(denominatorAnswer); 
 //		  int i = index; 
