@@ -20,11 +20,11 @@
 	    	BigInt b3; 
 	    //	b3 = intValue1.add(intValue2);
 	    	//System.out.println("0) sum b3 is " + intValue1 + " + " + intValue2.toString() + " = " + b3);
-	    	b1 = new BigInt("136");
+	    	b1 = new BigInt("125");
 	    	System.out.println("b1 its equals to " + b1); 
-	    	b2 = new BigInt("438");
+	    	b2 = new BigInt("38");
 	       	System.out.println("b2 its equals to " + b2); 
-	    	b3 = b1.multiply(b2);
+	    	b3 = b1.subtract(b2);
 	       
 	    
 		}
@@ -247,29 +247,31 @@
 			 theLengthOfAnArray = integer.bigArray.size();
 		 }
 		 int newValue = 0; 
-		 int carrier = 0;
+		 int carrier = 0, otherIndex = 0, thisIndex= 0 ;
 		 
-		
-		 for(int index = 0; index < theLengthOfAnArray;index++) {
+		/*
+		 * 
 				 try {
 				 if(this.bigArray.get(index) != null && integer.bigArray.get(index) != null) {
 					 newValue = this.bigArray.get(index) - integer.bigArray.get(index);
-					 if(carrier == 1) {
+					 if(carrier != 0) {
 						 newValue = newValue - carrier; 
 						 carrier = 0; 
+						 
 					 }
 					 if(newValue <0) {
-						 newValue = newValue + 10; 
+						 newValue =Math.abs(newValue); 
 						 carrier = 1; 
 						 answer.add(index, newValue);
 					 }
 					  
-					 else {
+					 else
 						 answer.add(index, newValue); 
-					 }
+					
 				 }
 				 if ( index == theLengthOfAnArray-1 && carrier ==1){
-					 newValue = newValue - 10; 
+					 System.out.println(newValue);
+					 newValue = newValue - carrier; 
 					 answer.remove(index); 
 					 answer.add(index, newValue);	
 					 carrier =0; 
@@ -294,17 +296,20 @@
 				 }
 				 else if (this.bigArray.size() < integer.bigArray.size()){
 					
-					 newValue = integer.bigArray.get(integer.bigArray.size()-1); 
-					 if(carrier == 1 && this.bigArray.get(index) >0 ) {
+					 newValue = integer.bigArray.get(index); 
+					 if(carrier == 1 && integer.bigArray.get(index) >0 ) {
 						 newValue = newValue - 1; 
-						 
+						 answer.add(index, newValue);
 						 carrier = 0; 
 					 }
 					 //else(carrier)
 					
-					 else if(this.bigArray.size() != 1) {
+					 else if(integer.bigArray.size() != 1) {
 						 answer.add(index, newValue);	
 						 }
+					 else {
+						 answer.add(index, newValue); 
+					 }
 				 
 					 }
 				 if(this.bigArray.size() != 1) {
@@ -317,6 +322,100 @@
 			 }
 			// System.out.println("The value of answer array by index " + answer.get(index));
 		 
+		 
+		 */
+		 for(int index = 0; index < theLengthOfAnArray;index++) {
+			 try {
+			 	if(this.bigArray.get(index) !=null && integer.bigArray.get(index) != null) {
+				  thisIndex = this.bigArray.get(index); 
+				 	if(carrier != 0) {
+				 		thisIndex = thisIndex-carrier; 
+				 		carrier = 0;
+				 	}
+				 	otherIndex = integer.bigArray.get(index);
+				 	
+				 	if(thisIndex < otherIndex) {
+				 		thisIndex = thisIndex + 10; 
+				 		
+				 		carrier = 1;
+				 		newValue = thisIndex -otherIndex; 
+				 		System.out.println(thisIndex + " " + otherIndex + " " + newValue);
+				 	}
+				 	else {
+				 		newValue = thisIndex - otherIndex;
+				 	}
+				 	
+				 	
+				 	
+				 	answer.add(index,newValue); 
+				 
+			 	}
+			 
+			 	
+			
+			 	}
+			 catch(IndexOutOfBoundsException Exception) {
+				  if(this.bigArray.size() > integer.bigArray.size()) {
+					  newValue = this.bigArray.get(index);
+			 		if(carrier != 0) {
+			 			newValue = newValue - carrier; 
+			 			System.out.println(newValue); 
+			 		}
+						 
+					 
+			 		if(newValue < 0) {
+				 		carrier = 1; 
+				 		newValue = Math.abs(newValue);
+				 		
+				 	}
+			 		if(this.bigArray.size() != 1) {
+						 
+						 if(this.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
+							// answer.remove(index);
+							 //answer.remove(index -1); 
+							 //answer.add(index-1, thisIndex);
+						 }
+						 else {
+							 answer.add(index,newValue); 
+						 }
+						 
+					 } 
+				 	
+			 		
+				  }
+				  else if(this.bigArray.size() < integer.bigArray.size()) {
+					  newValue = integer.bigArray.get(index);
+					  if(carrier != 0) {
+				 			newValue = newValue - carrier; 
+				 		}
+							 
+						 
+				 		if(newValue < 0) {
+					 		carrier = 1; 
+					 		newValue = Math.abs(newValue);
+					 		
+					 	}
+					 	answer.add(index,newValue); 
+				  }
+			 }
+				 
+				 
+//			 if(this.bigArray.size() != 1) {
+//				 
+//				 if(this.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
+//					 answer.remove(index);
+//					 answer.remove(index -1); 
+//					 answer.add(index-1, 9);
+//				 }
+//				 
+//			 } 
+//			 else if (integer.bigArray.size() != 1){
+//				 if(integer.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
+//					 answer.remove(index);
+//					 answer.remove(index -1); 
+//					 answer.add(index-1, 9);
+//				 }
+//			 }
 		 }
 		 for(int index = 0; index < theLengthOfAnArray -1; index++) {
 			 //System.out.println("Hello There");
@@ -442,6 +541,7 @@
 	 private ArrayList<Integer> arrayShift(ArrayList<Integer> enterAnswer, ArrayList<Integer> denominator, int phaseShift){
 		 ArrayList<Integer> answer = new ArrayList<Integer>(); 
 		 int newValue =0 , carrying = 0,shift; 
+		 boolean insertingShift = true; 
 		 for(int index = 0; index < denominator.size(); index++) {
 			 shift = index +phaseShift; 
 			 if(phaseShift ==0 && enterAnswer.isEmpty()) {
@@ -451,34 +551,92 @@
 				System.out.println("");
 				Print(enterAnswer); 
 				Print(denominator);
-				System.out.println("Denominator Size " + denominator.size());
+			//	System.out.println("Denominator Size " + denominator.size());
 				System.out.println(index+phaseShift);
-				 if(shift < denominator.size()) {
+				if(enterAnswer.size() < denominator.size()) { 
+					if(shift != 0 && insertingShift ==true ) {
+							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
+								  answer.add(innerIndex, enterAnswer.get(innerIndex));
+							  }
+							  insertingShift = false;						
+							  }
+					newValue = denominator.get(index) + enterAnswer.get(shift); 
+					if(carrying != 0) {
+						  newValue = newValue + carrying;
+						  System.out.println("");
+						  carrying = 0; 
+					  }
+					  if(newValue > 9) {
+						  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+						  carryingValues = carry(newValue); 
+						  newValue = carryingValues.get(1); 
+						  carrying = carryingValues.get(0);
 						 
-						newValue = denominator.get(index) + enterAnswer.get(shift); 
-						if(carrying != 0) {
-							  newValue = newValue + carrying;
-							  System.out.println("");
-							  carrying = 0; 
 						  }
-						  if(newValue > 9) {
-							  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-							  carryingValues = carry(newValue); 
-							  newValue = carryingValues.get(1); 
-							  
-							  carrying = carryingValues.get(0); 
+					  answer.add(shift, newValue);
+				}
+				else if(enterAnswer.size() > denominator.size()) { 
+					if(shift != 0 && insertingShift ==true ) {
+						  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
+							  answer.add(innerIndex, enterAnswer.get(innerIndex));
 						  }
-						//  answer.remove(index + phaseShift); 
-						  answer.add(shift, newValue);
-				 }
-				 else {
-					 answer.add(shift, enterAnswer.get(index)); 
+						  insertingShift = false;						
+						  }
+				newValue = denominator.get(index) + enterAnswer.get(shift); 
+				if(carrying != 0) {
+					  newValue = newValue + carrying;
+					  System.out.println("");
+					  carrying = 0; 
+				  }
+				  if(newValue > 9) {
+					  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+					  carryingValues = carry(newValue); 
+					  newValue = carryingValues.get(1); 
+					  carrying = carryingValues.get(0);
 					 
-				 }
+					  }
+				  answer.add(shift, newValue);
+			}
+				
+//				 if(shift < denominator.size()) {
+//					 	
+//						// System.out.println("denominator values " +denominator.get(index) + "EnterAnswer values "  + enterAnswer.get(shift));
+//						newValue = denominator.get(index) + enterAnswer.get(shift); 
+//						if(carrying != 0) {
+//							  newValue = newValue + carrying;
+//							  System.out.println("");
+//							  carrying = 0; 
+//						  }
+//						  if(newValue > 9) {
+//							  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+//							  carryingValues = carry(newValue); 
+//							  newValue = carryingValues.get(1); 
+//							  carrying = carryingValues.get(0); 
+//						  }
+//						  System.out.println("The Values of newValues " + newValue);
+//						  //answer.remove(shift); 
+//						  if(shift != 0 && insertingShift ==true ) {
+//							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
+//								  answer.add(innerIndex, enterAnswer.get(innerIndex));
+//							  }
+//							  insertingShift = false; 
+//						  }
+//				 answer.add( shift ,newValue);
+//						  }
+//				 
+//				 else {
+//					 if(enterAnswer.size() > denominator.size()) {
+//					 answer.add(shift, enterAnswer.get(index)); 
+//					 }
+//					 else if(enterAnswer.size() < denominator.size() ) {
+//						 answer.add(shift, denominator.get(index));
+//					 }
+//				 }
+				 
 			 }
 			 
 			 if(carrying != 0) {
-				  answer.add(enterAnswer.size() , carrying); 
+				  answer.add(answer.size() , carrying); 
 			  }
 			 
 		 }
