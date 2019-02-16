@@ -1,4 +1,6 @@
 	 import java.util.*;
+	 import java.util.ArrayList;
+	 import java.util.Collections; 
 	public class BigInt {
 		private ArrayList <Integer> bigArray = new ArrayList<Integer>(); 
 		private String bigInt; 
@@ -21,335 +23,9 @@
     	BigInt b3; 
     	b3 = intValue1.add(intValue2);
     	System.out.println("0) sum b3 is " + intValue1 +" + " + intValue2 + " = " + b3);
-    	b1 = new BigInt("-1");
-    	b2 = new BigInt("+0");
-    	b3 = b1.add(b2);
-		System.out.println("1) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-	//	b3 = b1.multiply(b2);
-		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-		b1 = new BigInt("1");
-    	b2 = new BigInt("1");
-    	b3 = b1.add(b2);
-		System.out.println("\n2) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-1");
-    	b2 = new BigInt("1");
-    	b3 = b1.add(b2);
-		System.out.println("\n3) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-//		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("1");
-    	b2 = new BigInt("-1");
-    	b3 = b1.add(b2);
-		System.out.println("\n4) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-1");
-    	b2 = new BigInt("-1");
-    	b3 = b1.add(b2);
-		System.out.println("\n5) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-//		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("+1");
-    	b2 = new BigInt("+1");
-    	b3 = b1.add(b2);
-		System.out.println("\n6) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-100");
-    	b2 = new BigInt("100");
-    	b3 = b1.add(b2);
-		System.out.println("\n7) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//	//	System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("100");
-    	b2 = new BigInt("-100");
-    	b3 = b1.add(b2);
-		System.out.println("\n8) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-100");
-    	b2 = new BigInt("-100");
-    	b3 = b1.add(b2);
-		System.out.println("\n9) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("100" );
-    	b2 = new BigInt("100");
-    	b3 = b1.add(b2);
-		System.out.println("\n10) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-//		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("200");
-    	b2 = new BigInt("-0");
-    	b3 = b1.add(b2);
-		System.out.println("\n11) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-		b3 = b1.multiply(b2);
-		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-		//b3 = b1.divideBy(b2);
-		//System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-		//b3 = b1.modulus(b2);
-		//System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-200");
-    	b2 = new BigInt("-0");
-    	b3 = b1.add(b2);
-		System.out.println("\n12) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-		b3 = b1.multiply(b2);
-		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-		//b3 = b1.divideBy(b2);
-		//System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-		//b3 = b1.modulus(b2);
-		//System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-0");
-    	b2 = new BigInt("200");
-    	b3 = b1.add(b2);
-		System.out.println("\n13) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-0");
-    	b2 = new BigInt("-200");
-    	b3 = b1.add(b2);
-		System.out.println("\n14) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("37");
-    	b2 = new BigInt("26");
-    	b3 = b1.add(b2);
-		System.out.println("\n15) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-37");
-    	b2 = new BigInt("26");
-    	b3 = b1.add(b2);
-		System.out.println("\n16) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-//		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("37");
-    	b2 = new BigInt("-26");
-    	b3 = b1.add(b2);
-		System.out.println("\n17) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-37");
-    	b2 = new BigInt("-26");
-    	b3 = b1.add(b2);
-		System.out.println("\n18) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-200111111111111111199999999");
-		b2 = new BigInt("3333333333333388888888888888888888555555555555555555555555");
-		System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-		b3 = b1.add(b2);
-		System.out.println("19) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		
-//		b1 = b3.divideBy(b2);
-//		System.out.println("I should get back the same b1 I started with");
-//		System.out.println("quotient b1 is " + b3 +" / " + b2 + " = " + b1);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("66666666666666666666677777777777777777777711111111111111111200");
-    	b2 = new BigInt("-3333333333333333333344444444444");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("20) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		
-//		b1 = b3.divideBy(b2);
-//		System.out.println("I should get back the same b1 I started with");
-//		System.out.println("quotient b1 is " + b3 +" / " + b2 + " = " + b1);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-66666666666666666666677777777777777777777711111111111111111200");
-    	b2 = new BigInt("-333333");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("21) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-//		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("6666666");
-    	b2 = new BigInt("3333333333333333333344444444444444444444455555555555555550");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("22) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-//		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("1111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	b2 = new BigInt("99999999999999999999999999999888888888888888888888888888888881111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("23) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-1111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	b2 = new BigInt("99999999999999999999999999999888888888888888888888888888888881111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("24) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-		//b3 = b1.multiply(b2);
-		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-		//b3 = b1.divideBy(b2);
-		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-	//	b3 = b1.modulus(b2);
-		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("1111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	b2 = new BigInt("-99999999999999999999999999999888888888888888888888888888888881111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("25) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-//		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-		b1 = new BigInt("-1111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	b2 = new BigInt("-99999999999999999999999999999888888888888888888888888888888881111111111111111111111111111111122222222222222222222222222222222222333333333333333333333333333333334444444444444444444444444");
-    	System.out.println("\nb1 is " + b1);
-		System.out.println("b2 is " + b2);
-    	b3 = b1.add(b2);
-		System.out.println("26) sum b3 is " + b1 +" + " + b2 + " = " + b3);
-		b3 = b1.subtract(b2);
-		System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
-//		b3 = b1.multiply(b2);
-//		System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-//		b3 = b1.divideBy(b2);
-//		System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-//		b3 = b1.modulus(b2);
-//		System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
-	    
+    	b1 = new BigInt("435");
+    	b2 = new BigInt("138");
+    	b3 = b1.multiply(b2);
 		}
 		BigInt(String stringInteger){
 			set(stringInteger); 
@@ -479,7 +155,7 @@
 		}
 		public BigInt multiply(BigInt integer) {
 			BigInt answer; 
-			//answer = this.multiplying(integer); 
+			answer = this.multiplying(integer); 
 			return null; 
 		}
 		private BigInt adding(BigInt integer){
@@ -672,7 +348,7 @@
 				 	
 				 	
 				 	answer.add(index,newValue); 
-				 	Print(answer);
+				 	Print("Checking the value of subtract method", answer);
 				 
 			 	}
 			 
@@ -787,8 +463,8 @@
 		 return returnValue; 
 	 	}
 	 private BigInt multiplying(BigInt integer) {
-		 Print(this.bigArray); 
-		 Print(integer.bigArray); 
+		 Print("This.bigArray value in multiplying method ",this.bigArray); 
+		 Print("integer.bigArray value in the multiplying method ",integer.bigArray); 
 		 BigInt returnValue; 
 		 ArrayList<Integer> answer = new ArrayList<Integer>(); 
 		 ArrayList<Integer> denominatorAnswer = new ArrayList<Integer>(); 
@@ -796,6 +472,7 @@
 		 int i = 0;
 		  for(int index = 0; index <this.bigArray.size(); index++) {
 			  carrying = 0; 
+			  denominatorAnswer.clear(); 
 			  denominator  = integer.bigArray.get(index); 
 			  for(int innerIndex = 0; innerIndex < integer.bigArray.size(); innerIndex++){
 				  numerator = this.bigArray.get(innerIndex); 
@@ -822,15 +499,20 @@
 				 
 			  	}
 			  if(carrying != 0) {
+				  
 				  denominatorAnswer.add(denominatorAnswer.size() , carrying); 
 			  }
 			  
-			  Print(denominatorAnswer);
+			  Print("This denominatorAnswer before it goes into arrayShift", denominatorAnswer);
+			  if(answer.isEmpty() == false ) {
+				  Print("answer Value before going into arrayShift", answer);
+			  }
 			  answer= arrayShift(answer, denominatorAnswer,index);
-			 // Print(answer); 
+			  Print("answer Value after it went inside of ArrayShift ",answer); 
 			  
-			  denominatorAnswer.clear();
-			  
+			  //denominatorAnswer.clear();
+			  Print("", answer); 
+		  }
 	//		  Print(denominatorAnswer); 
 	//		  int i = index; 
 	//		  for(int innerIndex = 0; innerIndex < denominatorAnswer.size(); innerIndex++) {
@@ -862,9 +544,9 @@
 	//			  }
 	//			 
 	//		  }
-		  }
+		 
 	
-		  Print(answer);
+		  Print("this return Value of Multiplying method",answer);
 		 return null; 
 	 }
 	 private ArrayList<Integer> carry(int integer) {
@@ -880,112 +562,148 @@
 		 
 		 return answer; 
 	 }
-	 private ArrayList<Integer> arrayShift(ArrayList<Integer> enterAnswer, ArrayList<Integer> denominator, int phaseShift){
+	 private ArrayList<Integer> arrayShift(ArrayList<Integer> numerator, ArrayList<Integer> denominator, int phaseShift){
+
 		 ArrayList<Integer> answer = new ArrayList<Integer>(); 
 		 int newValue =0 , carrying = 0,shift; 
 		 boolean insertingShift = true; 
-		 for(int index = 0; index < denominator.size(); index++) {
-			 shift = index +phaseShift; 
-			 if(phaseShift ==0 && enterAnswer.isEmpty()) {
-				 answer.add(index, denominator.get(index)); 
+		// for(int index = 0; index < denominator.size(); index++) {
+			 
+			 if(phaseShift ==0 && numerator.isEmpty()) {
+				 
+				 return denominator; 
 			 }
 			 else {
-				System.out.println("");
-				Print(enterAnswer); 
-				Print(denominator);
-			//	System.out.println("Denominator Size " + denominator.size());
-				System.out.println(index+phaseShift);
-				if(enterAnswer.size() < denominator.size()) { 
-					if(shift != 0 && insertingShift ==true ) {
-							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
-								  answer.add(innerIndex, enterAnswer.get(innerIndex));
-							  }
-							  insertingShift = false;						
-							  }
-					newValue = denominator.get(index) + enterAnswer.get(shift); 
-					if(carrying != 0) {
-						  newValue = newValue + carrying;
-						  System.out.println("");
-						  carrying = 0; 
-					  }
-					  if(newValue > 9) {
-						  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-						  carryingValues = carry(newValue); 
-						  newValue = carryingValues.get(1); 
-						  carrying = carryingValues.get(0);
-						 
-						  }
-					  answer.add(shift, newValue);
-				}
-				else if(enterAnswer.size() > denominator.size()) { 
-					if(shift != 0 && insertingShift ==true ) {
-						  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
-							  answer.add(innerIndex, enterAnswer.get(innerIndex));
-						  }
-						  insertingShift = false;						
-						  }
-				newValue = denominator.get(index) + enterAnswer.get(shift); 
-				if(carrying != 0) {
-					  newValue = newValue + carrying;
-					  System.out.println("");
-					  carrying = 0; 
-				  }
-				  if(newValue > 9) {
-					  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-					  carryingValues = carry(newValue); 
-					  newValue = carryingValues.get(1); 
-					  carrying = carryingValues.get(0);
-					 
-					  }
-				  answer.add(shift, newValue);
-			}
-				
-//				 if(shift < denominator.size()) {
-//					 	
-//						// System.out.println("denominator values " +denominator.get(index) + "EnterAnswer values "  + enterAnswer.get(shift));
-//						newValue = denominator.get(index) + enterAnswer.get(shift); 
-//						if(carrying != 0) {
-//							  newValue = newValue + carrying;
-//							  System.out.println("");
-//							  carrying = 0; 
-//						  }
-//						  if(newValue > 9) {
-//							  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-//							  carryingValues = carry(newValue); 
-//							  newValue = carryingValues.get(1); 
-//							  carrying = carryingValues.get(0); 
-//						  }
-//						  System.out.println("The Values of newValues " + newValue);
-//						  //answer.remove(shift); 
-//						  if(shift != 0 && insertingShift ==true ) {
+				 System.out.println("This are the enter value into ArrayShift ");
+				 Print("This are the Entering Value of ArrayShift",numerator); 
+				 Print("",denominator); 
+				 
+				denominator = reverse(denominator); 
+				 for(int innerIndex = 0; innerIndex < phaseShift; innerIndex++) {
+					  denominator.add(denominator.size(), 0); 
+					  
+				 }
+				 denominator = reverse(denominator); 
+				 Print("denominator after the shift has been added ",denominator); 
+				 
+				 BigInt b1 = new BigInt(numerator ); 
+				 BigInt b2 = new BigInt(denominator); 
+				 BigInt b3 ; 
+				 System.out.println("b1 it equals to " + b1 + " b2 it equals to " + b2);
+
+				 b3 = b1.add(b2); 
+				 System.out.println("shift answer it is equals to " + b3);
+				  
+				 return b3.bigArray;
+			 }
+				 //Print(denominator);
+
+				// System.exit(0);
+			// }
+		 }//End of the Loop 
+//			 else {
+//				System.out.println("");
+//				Print(enterAnswer); 
+//				Print(denominator);
+//			//	System.out.println("Denominator Size " + denominator.size());
+//				System.out.println(index+phaseShift);
+//				if(enterAnswer.size() < denominator.size()) { 
+//					if(shift != 0 && insertingShift ==true ) {
 //							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
 //								  answer.add(innerIndex, enterAnswer.get(innerIndex));
 //							  }
-//							  insertingShift = false; 
+//							  insertingShift = false;						
+//							  }
+//					newValue = denominator.get(index) + enterAnswer.get(shift); 
+//					if(carrying != 0) {
+//						  newValue = newValue + carrying;
+//						  System.out.println("");
+//						  carrying = 0; 
+//					  }
+//					  if(newValue > 9) {
+//						  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+//						  carryingValues = carry(newValue); 
+//						  newValue = carryingValues.get(1); 
+//						  carrying = carryingValues.get(0);
+//						 
 //						  }
-//				 answer.add( shift ,newValue);
+//					  answer.add(shift, newValue);
+//				}
+//				else if(enterAnswer.size() > denominator.size()) { 
+//					if(shift != 0 && insertingShift ==true ) {
+//						  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
+//							  answer.add(innerIndex, enterAnswer.get(innerIndex));
 //						  }
+//						  insertingShift = false;						
+//						  }
+//				newValue = denominator.get(index) + enterAnswer.get(shift); 
+//				if(carrying != 0) {
+//					  newValue = newValue + carrying;
+//					  System.out.println("");
+//					  carrying = 0; 
+//				  }
+//				  if(newValue > 9) {
+//					  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+//					  carryingValues = carry(newValue); 
+//					  newValue = carryingValues.get(1); 
+//					  carrying = carryingValues.get(0);
+//					 
+//					  }
+//				  answer.add(shift, newValue);
+//			}
+//				
+////				 if(shift < denominator.size()) {
+////					 	
+////						// System.out.println("denominator values " +denominator.get(index) + "EnterAnswer values "  + enterAnswer.get(shift));
+////						newValue = denominator.get(index) + enterAnswer.get(shift); 
+////						if(carrying != 0) {
+////							  newValue = newValue + carrying;
+////							  System.out.println("");
+////							  carrying = 0; 
+////						  }
+////						  if(newValue > 9) {
+////							  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
+////							  carryingValues = carry(newValue); 
+////							  newValue = carryingValues.get(1); 
+////							  carrying = carryingValues.get(0); 
+////						  }
+////						  System.out.println("The Values of newValues " + newValue);
+////						  //answer.remove(shift); 
+////						  if(shift != 0 && insertingShift ==true ) {
+////							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
+////								  answer.add(innerIndex, enterAnswer.get(innerIndex));
+////							  }
+////							  insertingShift = false; 
+////						  }
+////				 answer.add( shift ,newValue);
+////						  }
+////				 
+////				 else {
+////					 if(enterAnswer.size() > denominator.size()) {
+////					 answer.add(shift, enterAnswer.get(index)); 
+////					 }
+////					 else if(enterAnswer.size() < denominator.size() ) {
+////						 answer.add(shift, denominator.get(index));
+////					 }
+////				 }
 //				 
-//				 else {
-//					 if(enterAnswer.size() > denominator.size()) {
-//					 answer.add(shift, enterAnswer.get(index)); 
-//					 }
-//					 else if(enterAnswer.size() < denominator.size() ) {
-//						 answer.add(shift, denominator.get(index));
-//					 }
+//			 }
+//			 
+//			 if(carrying != 0) {
+//				  answer.add(answer.size() , carrying); 
+//			  }
+//			 
+//		 }
+//		  System.out.println("");
+//		  System.out.println("ArrayShift answer");
+//		 Print(answer); 
+//		 return null ;
 //				 }
-				 
-			 }
-			 
-			 if(carrying != 0) {
-				  answer.add(answer.size() , carrying); 
-			  }
-			 
-		 }
-		  System.out.println("");
-		  System.out.println("ArrayShift answer");
-		 Print(answer); 
-		 return answer; 
+	 private ArrayList<Integer> reverse(ArrayList<Integer> list) {
+	     for(int i = 0, j = list.size() - 1; i < j; i++) {
+	         list.add(i, list.remove(j));
+	     }
+	     return list;
 	 }
 		private void set(String stringInteger) {
 			char location ; 
@@ -1089,17 +807,17 @@
 			//	System.out.println("Test final SetAndRemove method default return value equals " + number);
 					return number; 
 		}
-		private void Print(ArrayList<Integer> integer) {
+		private void Print( String message , ArrayList<Integer> integer) {
 		
 				String  newString= ""; 
-				BigInt b1; 
+				//BigInt b1; 
 				 int i = integer.size() -1; 
 				for(int index = 0; index < integer.size(); index++) {
 					//System.out.println("The value of the array "+ String.valueOf(arrayString.get(i)));
 					 newString = newString + String.valueOf(integer.get(i)); 
 					i --; 
 				}
-			//	System.out.println("The value of the array its equals to " + newString);
+				System.out.println(message + " " + newString );
 		}
 		private Integer returnInteger(ArrayList<Integer> integer){
 			 int i = integer.size() -1, newValue = 0; 
