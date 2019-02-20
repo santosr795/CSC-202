@@ -23,8 +23,8 @@
     	BigInt b3; 
     	b3 = intValue1.add(intValue2);
     	System.out.println("0) sum b3 is " + intValue1 +" + " + intValue2 + " = " + b3);
-    	b1 = new BigInt("435");
-    	b2 = new BigInt("138");
+    	b1 = new BigInt("566666");
+    	b2 = new BigInt("56");
     	b3 = b1.multiply(b2);
 		}
 		BigInt(String stringInteger){
@@ -465,21 +465,48 @@
 	 private BigInt multiplying(BigInt integer) {
 		 Print("This.bigArray value in multiplying method ",this.bigArray); 
 		 Print("integer.bigArray value in the multiplying method ",integer.bigArray); 
-		 BigInt returnValue; 
+		 BigInt returnValue = new BigInt(0); 
 		 ArrayList<Integer> answer = new ArrayList<Integer>(); 
 		 ArrayList<Integer> denominatorAnswer = new ArrayList<Integer>(); 
-		 int denominator, numerator, newValue = 0,carrying;
-		 int i = 0;
-		  for(int index = 0; index <this.bigArray.size(); index++) {
+		 ArrayList<Integer> passingArray = new ArrayList<Integer>(); 
+		 int denominator, numerator = 0, newValue = 0,carrying; 
+		
+		 int i = 0, biggerArray=0, smallerArray =0;
+		  if(this.bigArray.size() > integer.bigArray.size()) {
+			 biggerArray = this.bigArray.size();
+			 smallerArray = integer.bigArray.size();
+			 
+			  
+		  }
+		  else {
+			  	 smallerArray = this.bigArray.size();
+			  	 biggerArray = integer.bigArray.size(); 
+		  }
+		  for(int index = 0; index <biggerArray; index++) {
 			  carrying = 0; 
 			  denominatorAnswer.clear(); 
-			  denominator  = integer.bigArray.get(index); 
-			  for(int innerIndex = 0; innerIndex < integer.bigArray.size(); innerIndex++){
-				  numerator = this.bigArray.get(innerIndex); 
+			//  Print("\n\n answer",answer);
+		
+			  passingArray = returnValue.bigArray; 
+			  if(this.bigArray.size() > integer.bigArray.size()) {
+				  denominator = this.bigArray.get(index);
+				  
+			  }
+			  else {
+				  denominator  = integer.bigArray.get(index); 
+			  }
+			  for(int innerIndex = 0; innerIndex < smallerArray; innerIndex++){
+				  ; 
+				  if(this.bigArray.size() > integer.bigArray.size()) {
+					  numerator = integer.bigArray.get(innerIndex);
+				  }
+				  else {
+					   numerator = this.bigArray.get(innerIndex);
+				  }
 				  newValue = numerator * denominator; 
 				  if(carrying != 0) {
 					  newValue = newValue + carrying;
-					  System.out.println("");
+					//  System.out.println("");
 					  carrying = 0; 
 				  }
 				  if(newValue > 9) {
@@ -488,7 +515,7 @@
 					  newValue = carryingValues.get(1); 
 					  
 					  carrying = carryingValues.get(0); 
-					  System.out.println("Carrying values " + carryingValues + ". newValues " +newValue);
+					//  System.out.println("Carrying values " + carryingValues + ". newValues " +newValue);
 				  }
 				  
 				  //answer.add(innerIndex, newValue);
@@ -503,16 +530,19 @@
 				  denominatorAnswer.add(denominatorAnswer.size() , carrying); 
 			  }
 			  
-			  Print("This denominatorAnswer before it goes into arrayShift", denominatorAnswer);
-			  if(answer.isEmpty() == false ) {
-				  Print("answer Value before going into arrayShift", answer);
-			  }
-			  answer= arrayShift(answer, denominatorAnswer,index);
-			  Print("answer Value after it went inside of ArrayShift ",answer); 
-			  
+//			  Print("This denominatorAnswer before it goes into arrayShift", denominatorAnswer);
+//			  if(passingArray.isEmpty() == false ) {
+//				  Print("answer Value before going into arrayShift", answer);
+//			  }
+			  passingArray= arrayShift(passingArray, denominatorAnswer,index);
+			 // Print("\n\n variable answer value ",answer); 
+			  returnValue.bigArray = passingArray; 
 			  //denominatorAnswer.clear();
-			  Print("", answer); 
+			
 		  }
+		 // Print("this return Value of Multiplying method",answer);
+			 return returnValue; 
+	 }
 	//		  Print(denominatorAnswer); 
 	//		  int i = index; 
 	//		  for(int innerIndex = 0; innerIndex < denominatorAnswer.size(); innerIndex++) {
@@ -546,9 +576,7 @@
 	//		  }
 		 
 	
-		  Print("this return Value of Multiplying method",answer);
-		 return null; 
-	 }
+	
 	 private ArrayList<Integer> carry(int integer) {
 		 ArrayList<Integer> answer = new ArrayList<Integer>();
 		 String stringInt = String.valueOf(integer), tempCharValue;
@@ -574,33 +602,34 @@
 				 return denominator; 
 			 }
 			 else {
-				 System.out.println("This are the enter value into ArrayShift ");
-				 Print("This are the Entering Value of ArrayShift",numerator); 
-				 Print("",denominator); 
-				 
+//				 System.out.println("This are the enter value into ArrayShift ");
+//				 Print("This are the Entering Value of ArrayShift",numerator); 
+//				 Print("",denominator); 
+//				 
 				denominator = reverse(denominator); 
 				 for(int innerIndex = 0; innerIndex < phaseShift; innerIndex++) {
 					  denominator.add(denominator.size(), 0); 
 					  
 				 }
 				 denominator = reverse(denominator); 
-				 Print("denominator after the shift has been added ",denominator); 
+				// Print("denominator after the shift has been added ",denominator); 
 				 
 				 BigInt b1 = new BigInt(numerator ); 
 				 BigInt b2 = new BigInt(denominator); 
 				 BigInt b3 ; 
-				 System.out.println("b1 it equals to " + b1 + " b2 it equals to " + b2);
+				// System.out.println("b1 it equals to " + b1 + " b2 it equals to " + b2);
 
 				 b3 = b1.add(b2); 
-				 System.out.println("shift answer it is equals to " + b3);
+				// System.out.println("shift answer it is equals to " + b3);
 				  
 				 return b3.bigArray;
 			 }
+	 }
 				 //Print(denominator);
 
 				// System.exit(0);
 			// }
-		 }//End of the Loop 
+		 //End of the Loop 
 //			 else {
 //				System.out.println("");
 //				Print(enterAnswer); 
