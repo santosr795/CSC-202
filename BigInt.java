@@ -21,11 +21,11 @@
     	BigInt b1; 
     	BigInt b2; 
     	BigInt b3; 
-    	b3 = intValue1.add(intValue2);
-    	System.out.println("0) sum b3 is " + intValue1 +" + " + intValue2 + " = " + b3);
-    	b1 = new BigInt("566666");
-    	b2 = new BigInt("56");
-    	b3 = b1.multiply(b2);
+    	//b3 = intValue1.add(intValue2);
+    //	System.out.println("0) sum b3 is " + intValue1 +" + " + intValue2 + " = " + b3);
+    	b1 = new BigInt("125");
+    	b2 = new BigInt("3");
+    	b3 = b1.divide(b2);
 		}
 		BigInt(String stringInteger){
 			set(stringInteger); 
@@ -54,31 +54,7 @@
 			
 			
 		}
-	//	private void set(String aBigInt) {
-	//		try {
-	//			if(aBigInt.substring(0,1).equals("-")) {
-	//				positive = false; 
-	//				aBigInt = setAndRemoveSignIfItIsThere(aBigInt);  
-	//				System.out.println("Testing set one " + this.bigInt);
-	//			}
-	//			else if (aBigInt.substring(0,1).equals("+")) {
-	//				aBigInt = setAndRemoveSignIfItIsThere(aBigInt);  
-	//				System.out.println("Testing set two " + this.bigInt);
-	//			}
-	//			else {
-	//		
-	//				this.bigInt = Integer.parseInt(aBigInt); 
-	//				System.out.println("Testing set three " + this.bigInt);
-	//			}
-	//		}
-	//		catch(Exception e) {
-	//			System.out.println(aBigInt+" was written in the wrong format.");
-	//			System.exit(0);
-	//		}
-	//	}
-		
-	
-		
+			
 		public BigInt add(BigInt anInteger) {
 			BigInt answer = null; 
 			//if(this.bigArray.size() <= bigArray.size()) {
@@ -106,21 +82,7 @@
 					//answer = new BigInt( answer.setAndRemoveSignIfItIsThere(bigInt)); 
 				}
 				
-			//}
-	//		else if(this.bigArray.size() >= bigArray.size()) {
-	//			if(this.positive == true && anInteger.positive == true ) {
-	//				System.out.println("Checking Boolean Wrapper ++");
-	//			}
-	//			else if (t	his.positive == true && anInteger.positive == false) {
-	//				System.out.println("Checking Boolean Wrapper +-");
-	//			}
-	//			else if(this.positive == false && anInteger.positive == true) {
-	//				System.out.println("Checking Boolean Wrapper -+");
-	//			}
-	//			else if(this.positive == false && anInteger.positive == false) {
-	//				System.out.println("Checking Boolean Wrapper --");
-	//			}
-	//		}
+		
 			BigInt FinalAnswer;
 			//System.out.println(answer.bigInt);
 			return FinalAnswer = new BigInt(answer); 
@@ -156,6 +118,11 @@
 		public BigInt multiply(BigInt integer) {
 			BigInt answer; 
 			answer = this.multiplying(integer); 
+			return answer; 
+		}
+		public BigInt divide(BigInt integer) {
+			BigInt answer; 
+			answer = this.dividing(integer); 
 			return null; 
 		}
 		private BigInt adding(BigInt integer){
@@ -248,81 +215,7 @@
 		 int newValue = 0; 
 		 int carrier = 0, otherIndex = 0, thisIndex= 0 ;
 		 
-		/*
-		 * 
-				 try {
-				 if(this.bigArray.get(index) != null && integer.bigArray.get(index) != null) {
-					 newValue = this.bigArray.get(index) - integer.bigArray.get(index);
-					 if(carrier != 0) {
-						 newValue = newValue - carrier; 
-						 carrier = 0; 
-						 
-					 }
-					 if(newValue <0) {
-						 newValue =Math.abs(newValue); 
-						 carrier = 1; 
-						 answer.add(index, newValue);
-					 }
-					  
-					 else
-						 answer.add(index, newValue); 
-					
-				 }
-				 if ( index == theLengthOfAnArray-1 && carrier ==1){
-					 System.out.println(newValue);
-					 newValue = newValue - carrier; 
-					 answer.remove(index); 
-					 answer.add(index, newValue);	
-					 carrier =0; 
-				 }
-				
-				 
-				 }
-				 catch(Exception e){
-					 
-				 if(this.bigArray.size() > integer.bigArray.size()){
-					 
-					 newValue = this.bigArray.get(index); 
-					 if(carrier == 1 && this.bigArray.get(index) != 0 && index != theLengthOfAnArray-1) {
-						 newValue = newValue - 1; 
-						 //System.out.println("The value of integer inside tbe subtract method " +  newValue);
-						 
-						 carrier = 0; 
-					 }
-					 
-					 answer.add(index, newValue);
 		
-				 }
-				 else if (this.bigArray.size() < integer.bigArray.size()){
-					
-					 newValue = integer.bigArray.get(index); 
-					 if(carrier == 1 && integer.bigArray.get(index) >0 ) {
-						 newValue = newValue - 1; 
-						 answer.add(index, newValue);
-						 carrier = 0; 
-					 }
-					 //else(carrier)
-					
-					 else if(integer.bigArray.size() != 1) {
-						 answer.add(index, newValue);	
-						 }
-					 else {
-						 answer.add(index, newValue); 
-					 }
-				 
-					 }
-				 if(this.bigArray.size() != 1) {
-					 if(this.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
-						 answer.remove(index);
-						 answer.remove(index -1); 
-						 answer.add(index-1, 9);
-					 }
-					}
-			 }
-			// System.out.println("The value of answer array by index " + answer.get(index));
-		 
-		 
-		 */
 		 int thisInteger = returnInteger(this.bigArray), otherInteger = returnInteger(integer.bigArray);
 		 for(int index = 0; index < theLengthOfAnArray;index++) {
 			 try {
@@ -373,32 +266,7 @@
 			 			else {
 			 			answer.add(index, this.bigArray.get(index));
 			 			}
-			 		}
-						 
-					 
-//			 		if(newValue < 0) {
-//				 		carrier = 1; 
-//				 		newValue = Math.abs(newValue);
-//				 		
-//				 	}
-//			 		if(this.bigArray.size() != 1) {
-//						 
-//						 if(this.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
-//							// answer.remove(index);
-//							 if(newValue == 1 && carrier != 0 ) {
-//								 newValue = 9; 
-//								 carrier = 0; 
-//										 
-//							 }
-//							// answer.remove(index -1); 
-//							 answer.add(index-1, thisIndex);
-//						 }
-//						 else {
-//							 answer.add(index,newValue); 
-//						 }
-//						 
-//					 } 
-				 	
+			 		}	
 			 		
 				  }
 				  else if(this.bigArray.size() < integer.bigArray.size()) {
@@ -416,24 +284,6 @@
 					 	answer.add(index,newValue); 
 				  }
 			 }
-				 
-				 
-//			 if(this.bigArray.size() != 1) {
-//				 
-//				 if(this.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
-//					 answer.remove(index);
-//					 answer.remove(index -1); 
-//					 answer.add(index-1, 9);
-//				 }
-//				 
-//			 } 
-//			 else if (integer.bigArray.size() != 1){
-//				 if(integer.bigArray.get(index) == 1 && index == theLengthOfAnArray-1 && carrier ==1) {
-//					 answer.remove(index);
-//					 answer.remove(index -1); 
-//					 answer.add(index-1, 9);
-//				 }
-//			 }
 		 }
 		 for(int index = 0; index < theLengthOfAnArray -1; index++) {
 			 //System.out.println("Hello There");
@@ -540,42 +390,40 @@
 			  //denominatorAnswer.clear();
 			
 		  }
+		  if(this.positive==false && integer.positive ==false) {
+			  returnValue.positive = true; 
+		  }
+		  else if(this.positive == false || integer.positive ==false) {
+			  returnValue.positive = false; 
+		  }
+		  else {
+			  returnValue.positive =true;  
+					  }
 		 // Print("this return Value of Multiplying method",answer);
 			 return returnValue; 
 	 }
-	//		  Print(denominatorAnswer); 
-	//		  int i = index; 
-	//		  for(int innerIndex = 0; innerIndex < denominatorAnswer.size(); innerIndex++) {
-	//			  try {
-	//				  if(answer.get(innerIndex) == null) {
-	//					  answer.add(i,denominatorAnswer.get(innerIndex));
-	//					  i++;
-	//				  }
-	//				  else {
-	//					  newValue= answer.get(i) + denominatorAnswer.get(innerIndex); 
-	//					  
-	//					  i++;
-	//					  if(carrying != 0) {
-	//						  newValue = newValue + carrying;
-	//						  carrying = 0; 
-	//					  }
-	//					  if(newValue > 9 ) {
-	//						  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-	//						  carryingValues = carry(newValue); 
-	//						  newValue = carryingValues.get(0); 
-	//						  carrying = carryingValues.get(carryingValues.size()-1); 
-	//					  }
-	//					  
-	//				  }
-	//			  }
-	//			  catch(IndexOutOfBoundsException Exception) {
-	//				  answer.add(i,denominatorAnswer.get(innerIndex));
-	//				  i++;
-	//			  }
-	//			 
-	//		  }
-		 
+	private BigInt dividing(BigInt integer) {
+		//System.out.println(this.bigInt + integer.bigInt);
+		int multiplier = Math.abs(Integer.parseInt(integer.toString())),
+			diviser = Math.abs(Integer.parseInt(this.toString())),
+			checker = 0, increment = 0, index = 0 ; 
+		System.out.println(diviser +" " + multiplier);
+		while(multiplier < diviser) {
+			if(checker > diviser ) {
+				diviser = diviser - increment;
+				index = 0; 
+				System.out.println(diviser);
+			}
+			increment = (int) Math.pow(2,index); 
+			//System.out.println(increment);
+			index ++; 
+			checker = increment * multiplier; 
+			
+		}
 	
+		
+		return null;
+	}
 	
 	 private ArrayList<Integer> carry(int integer) {
 		 ArrayList<Integer> answer = new ArrayList<Integer>();
@@ -625,109 +473,7 @@
 				 return b3.bigArray;
 			 }
 	 }
-				 //Print(denominator);
-
-				// System.exit(0);
-			// }
-		 //End of the Loop 
-//			 else {
-//				System.out.println("");
-//				Print(enterAnswer); 
-//				Print(denominator);
-//			//	System.out.println("Denominator Size " + denominator.size());
-//				System.out.println(index+phaseShift);
-//				if(enterAnswer.size() < denominator.size()) { 
-//					if(shift != 0 && insertingShift ==true ) {
-//							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
-//								  answer.add(innerIndex, enterAnswer.get(innerIndex));
-//							  }
-//							  insertingShift = false;						
-//							  }
-//					newValue = denominator.get(index) + enterAnswer.get(shift); 
-//					if(carrying != 0) {
-//						  newValue = newValue + carrying;
-//						  System.out.println("");
-//						  carrying = 0; 
-//					  }
-//					  if(newValue > 9) {
-//						  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-//						  carryingValues = carry(newValue); 
-//						  newValue = carryingValues.get(1); 
-//						  carrying = carryingValues.get(0);
-//						 
-//						  }
-//					  answer.add(shift, newValue);
-//				}
-//				else if(enterAnswer.size() > denominator.size()) { 
-//					if(shift != 0 && insertingShift ==true ) {
-//						  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
-//							  answer.add(innerIndex, enterAnswer.get(innerIndex));
-//						  }
-//						  insertingShift = false;						
-//						  }
-//				newValue = denominator.get(index) + enterAnswer.get(shift); 
-//				if(carrying != 0) {
-//					  newValue = newValue + carrying;
-//					  System.out.println("");
-//					  carrying = 0; 
-//				  }
-//				  if(newValue > 9) {
-//					  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-//					  carryingValues = carry(newValue); 
-//					  newValue = carryingValues.get(1); 
-//					  carrying = carryingValues.get(0);
-//					 
-//					  }
-//				  answer.add(shift, newValue);
-//			}
-//				
-////				 if(shift < denominator.size()) {
-////					 	
-////						// System.out.println("denominator values " +denominator.get(index) + "EnterAnswer values "  + enterAnswer.get(shift));
-////						newValue = denominator.get(index) + enterAnswer.get(shift); 
-////						if(carrying != 0) {
-////							  newValue = newValue + carrying;
-////							  System.out.println("");
-////							  carrying = 0; 
-////						  }
-////						  if(newValue > 9) {
-////							  ArrayList<Integer> carryingValues = new ArrayList<Integer>(); 
-////							  carryingValues = carry(newValue); 
-////							  newValue = carryingValues.get(1); 
-////							  carrying = carryingValues.get(0); 
-////						  }
-////						  System.out.println("The Values of newValues " + newValue);
-////						  //answer.remove(shift); 
-////						  if(shift != 0 && insertingShift ==true ) {
-////							  for(int innerIndex =0; innerIndex <= shift; innerIndex++) {
-////								  answer.add(innerIndex, enterAnswer.get(innerIndex));
-////							  }
-////							  insertingShift = false; 
-////						  }
-////				 answer.add( shift ,newValue);
-////						  }
-////				 
-////				 else {
-////					 if(enterAnswer.size() > denominator.size()) {
-////					 answer.add(shift, enterAnswer.get(index)); 
-////					 }
-////					 else if(enterAnswer.size() < denominator.size() ) {
-////						 answer.add(shift, denominator.get(index));
-////					 }
-////				 }
-//				 
-//			 }
-//			 
-//			 if(carrying != 0) {
-//				  answer.add(answer.size() , carrying); 
-//			  }
-//			 
-//		 }
-//		  System.out.println("");
-//		  System.out.println("ArrayShift answer");
-//		 Print(answer); 
-//		 return null ;
-//				 }
+				 
 	 private ArrayList<Integer> reverse(ArrayList<Integer> list) {
 	     for(int i = 0, j = list.size() - 1; i < j; i++) {
 	         list.add(i, list.remove(j));
@@ -818,22 +564,7 @@
 					
 					 number = "-" + number;
 				 }
-	//			 else if (positive.booleanValue()==true) {
-	//					return "+" + number; 
-	//				}
-	//			}
-	//			catch(Exception e) {
-	//				try {			
-	//					if (positive.booleanValue()==true) {
-	//					return "+" + number; 
-	//					}
-	//				}	
-	//					catch(Exception r) {
-	//						return number; 
-	//					}
-	//			
-	//			}
-			//	System.out.println("Test final SetAndRemove method default return value equals " + number);
+	
 					return number; 
 		}
 		private void Print( String message , ArrayList<Integer> integer) {
