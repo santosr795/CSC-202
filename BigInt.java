@@ -23,8 +23,8 @@
     	BigInt b3; 
     	//b3 = intValue1.add(intValue2);
     //	System.out.println("0) sum b3 is " + intValue1 +" + " + intValue2 + " = " + b3);
-    	b1 = new BigInt("125");
-    	b2 = new BigInt("3");
+    	b1 = new BigInt("12");
+    	b2 = new BigInt("12");
     	b3 = b1.divide(b2);
 		}
 		BigInt(String stringInteger){
@@ -87,37 +87,72 @@
 			//System.out.println(answer.bigInt);
 			return FinalAnswer = new BigInt(answer); 
 			}
-		public BigInt subtract(BigInt anInteger) {
+		public BigInt subtract(BigInt integer) {
 			BigInt answer = null; 
-			if(this.positive == true && anInteger.positive == true ) {
+			if(this.positive == true && integer.positive == true ) {
 				//add
 				//System.out.println("Checking Boolean Wrapper ++");
-				answer = this.subtracting(anInteger);
+				answer = this.subtracting(integer);
 			}
-			else if (this.positive == true && anInteger.positive == false) {
+			else if (this.positive == true && integer.positive == false) {
 				//Subtract
-					answer =this.adding(anInteger); 
+					answer =this.adding(integer); 
 					//System.out.println("Checking Boolean Wrapper +-");
 			}
-			else if(this.positive == false && anInteger.positive == true) {
+			else if(this.positive == false && integer.positive == true) {
 				//subtract
 				//System.out.println("Checking Boolean Wrapper -+");
-				answer = this.adding(anInteger); 
+				answer = this.adding(integer); 
 			}
-			else if(this.positive == false && anInteger.positive == false) {
+			else if(this.positive == false && integer.positive == false) {
 				//add
-				answer = this.subtracting(anInteger);
+				answer = this.subtracting(integer);
 				//answer.toString(); 
 				//answer = new BigInt( answer.setAndRemoveSignIfItIsThere(bigInt)); 
 			}
 			BigInt FinalAnswer;
+			
+		if(this.bigArray.size()== integer.bigArray.size()  && this.positive==false && Math.abs(Integer.parseInt(this.bigInt)) > Math.abs(Integer.parseInt(integer.bigInt))) {
+			 answer.positive = false; 
+		 }
+		 else if(integer.bigArray.size() == this.bigArray.size() && integer.positive==false && Math.abs(Integer.parseInt(integer.bigInt))> Math.abs(Integer.parseInt(this.bigInt))) {
+			 answer.positive = false; 
+		 }
+		 if(this.positive == false && integer.positive == false) {
+			 answer.positive = false; 
+		 }
+		 else if(integer.positive == false && integer.bigArray.size() > this.bigArray.size()) {
+			 answer.positive=false;
+		 }
+		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
+			 answer.positive=false;
+		 }
+			 
 			//System.out.println(answer.bigInt);
+			
 			return FinalAnswer = new BigInt(answer);
 			
 		}
 		public BigInt multiply(BigInt integer) {
 			BigInt answer; 
 			answer = this.multiplying(integer); 
+			
+			 if(this.bigArray.size()== integer.bigArray.size()  && this.positive==false && Math.abs(Integer.parseInt(this.bigInt)) > Math.abs(Integer.parseInt(integer.bigInt))) {
+			 answer.positive = false; 
+		 }
+		 else if(integer.bigArray.size() == this.bigArray.size() && integer.positive==false && Math.abs(Integer.parseInt(integer.bigInt)) > Math.abs(Integer.parseInt(this.bigInt))) {
+			 answer.positive = false; 
+		 }
+		 if(this.positive == false && integer.positive == false) {
+			 answer.positive = false; 
+		 }
+		 else if(integer.positive == false && integer.bigArray.size() > this.bigArray.size()) {
+			 answer.positive=false;
+		 }
+		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
+			 answer.positive=false;
+		 }
+			 
 			return answer; 
 		}
 		public BigInt divide(BigInt integer) {
@@ -292,29 +327,29 @@
 			 }
 		 }
 		 returnValue = new BigInt(answer); 
-		 if(this.bigArray.size()== integer.bigArray.size()  && this.positive==false && Integer.parseInt(this.bigInt) > Integer.parseInt(integer.bigInt)) {
-			 returnValue.positive = false; 
-		 }
-		 else if(integer.bigArray.size() == this.bigArray.size() && integer.positive==false && Integer.parseInt(integer.bigInt)> Integer.parseInt(this.bigInt)) {
-			 returnValue.positive = false; 
-		 }
-		 if(this.positive == false && integer.positive == false) {
-			 returnValue.positive = false; 
-		 }
-		 else if(integer.positive == false && integer.bigArray.size() > this.bigArray.size()) {
-			 returnValue.positive=false;
-		 }
-		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
-			 returnValue.positive=false;
-		 }
-		 
+//		 if(this.bigArray.size()== integer.bigArray.size()  && this.positive==false && Integer.parseInt(this.bigInt) > Integer.parseInt(integer.bigInt)) {
+//			 returnValue.positive = false; 
+//		 }
+//		 else if(integer.bigArray.size() == this.bigArray.size() && integer.positive==false && Integer.parseInt(integer.bigInt)> Integer.parseInt(this.bigInt)) {
+//			 returnValue.positive = false; 
+//		 }
+//		 if(this.positive == false && integer.positive == false) {
+//			 returnValue.positive = false; 
+//		 }
+//		 else if(integer.positive == false && integer.bigArray.size() > this.bigArray.size()) {
+//			 returnValue.positive=false;
+//		 }
+//		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
+//			 returnValue.positive=false;
+//		 }
+//		 
 			
 			 
 		 return returnValue; 
 	 	}
 	 private BigInt multiplying(BigInt integer) {
-		 Print("This.bigArray value in multiplying method ",this.bigArray); 
-		 Print("integer.bigArray value in the multiplying method ",integer.bigArray); 
+		 //Print("This.bigArray value in multiplying method ",this.bigArray); 
+		 //Print("integer.bigArray value in the multiplying method ",integer.bigArray); 
 		 BigInt returnValue = new BigInt(0); 
 		 ArrayList<Integer> answer = new ArrayList<Integer>(); 
 		 ArrayList<Integer> denominatorAnswer = new ArrayList<Integer>(); 
@@ -386,50 +421,106 @@
 //			  }
 			  passingArray= arrayShift(passingArray, denominatorAnswer,index);
 			 // Print("\n\n variable answer value ",answer); 
-			  returnValue.bigArray = passingArray; 
+			  returnValue  = new BigInt( passingArray); 
 			  //denominatorAnswer.clear();
 			
 		  }
-		  if(this.positive==false && integer.positive ==false) {
-			  returnValue.positive = true; 
-		  }
-		  else if(this.positive == false || integer.positive ==false) {
-			  returnValue.positive = false; 
-		  }
-		  else {
-			  returnValue.positive =true;  
-					  }
+//		  if(this.positive==false && integer.positive ==false) {
+//			  returnValue.positive = true; 
+//		  }
+//		  else if(this.positive == false || integer.positive ==false) {
+//			  returnValue.positive = false; 
+//		  }
+//		  else {
+//			  returnValue.positive =true;  
+//					  }
+		  System.out.println("Multiplying returnValue " + returnValue);
 		 // Print("this return Value of Multiplying method",answer);
 			 return returnValue; 
 	 }
 	private BigInt dividing(BigInt integer) {
-		//System.out.println(this.bigInt + integer.bigInt);
-		int multiplier = Math.abs(Integer.parseInt(integer.toString())),
-			diviser = Math.abs(Integer.parseInt(this.toString())),
-			checker = 0, increment = 0, index = 0 ; 
-		System.out.println(diviser +" " + multiplier);
-		while(multiplier < diviser) {
-			if(checker > diviser ) {
-				diviser = diviser - increment;
-				index = 0; 
-				System.out.println(diviser);
+		BigInt checker = new BigInt(0), previousChecker = new BigInt(0), 
+				increase= new BigInt(0), previousIncrement = new BigInt(0), numerator = this,
+				denominator = integer;
+		int index = 0, i = 0; 
+		ArrayList<BigInt> numeratorValues = new ArrayList<BigInt>(); 
+			while(denominator.equalsOrGreater(numerator) == false) {
+				increase = increment(index); 
+				index ++; 
+				checker = increase.multiply(denominator); 
+				//System.out.println("This is checker Value " + checker);
+				if (checker.greater(numerator) ==true) {
+					System.out.println("Numerator value " + numerator + "\n previousChecker Value  " + previousChecker );
+					numerator = numerator.subtracting(previousChecker); 
+					index = 0; 
+					numeratorValues.add(i, previousIncrement ); 
+					
+					i++;  
+					System.out.println("dividing numerator value " + numerator);
+					previousChecker = new BigInt(0);
+					previousIncrement = new BigInt(0);  
+					//System.exit(0);
+				}
+				
+				previousIncrement = new BigInt(increase); 
+				previousChecker = new BigInt(checker); 
+//				if(index == 8 ) {
+//					System.exit(0);
+//				}
 			}
-			increment = (int) Math.pow(2,index); 
-			//System.out.println(increment);
-			index ++; 
-			checker = increment * multiplier; 
-			
-		}
-	
+			BigInt answer = new BigInt(0); 
 		
-		return null;
+			for(index = 0; index< numeratorValues.size(); index++ ) {
+				//System.out.println("The Values inside the Array " + numeratorValues.get(index));
+				 answer = answer.adding(numeratorValues.get(index));  
+			}
+			System.out.println("The answer before return " + answer);
+		return answer;
 	}
-	
+		//System.out.println(this.bigInt + integer.bigInt);
+//		
+//		int multiplier = Math.abs(Integer.parseInt(integer.toString())),
+//			diviser = Math.abs(Integer.parseInt(this.toString())),
+//			checker = 0, previousChecker = 0,previousIncrement = 0, increment = 0, index = 0,
+//			answer = 0 ; 
+//		System.out.println(diviser +" " + multiplier);
+//	
+//		while(multiplier < diviser) {
+//			
+//			increment = (int) Math.pow(2,index); 
+//			//System.out.println(increment);
+//			index ++; 
+//			checker = increment * multiplier; 
+//			System.out.println(checker); 
+//			if(checker > diviser ) {
+//				System.out.println(previousIncrement + " Increment " );
+//				diviser = diviser - previousChecker;
+//				index = 0; 
+//				System.out.println("Diviser "+diviser);
+//				previousChecker  = 0; 
+//			}
+//			previousIncrement = increment; 
+//			previousChecker = checker; 
+//		}
+//	
+		
+		private boolean greater(BigInt integer) {
+			return Math.abs(Integer.parseInt(this.toString())) > Math.abs(Integer.parseInt(integer.toString())); 
+		}
+	private boolean equalsOrGreater(BigInt integer) {
+		return Math.abs(Integer.parseInt(this.toString())) >= Math.abs(Integer.parseInt(integer.toString())); 
+	}
+	private BigInt increment(int integer) {
+		int answer=0;
+		BigInt returnValue; 
+		answer = (int) Math.pow(2, integer); 		
+		return returnValue = new BigInt(answer); 
+	}
 	 private ArrayList<Integer> carry(int integer) {
 		 ArrayList<Integer> answer = new ArrayList<Integer>();
 		 String stringInt = String.valueOf(integer), tempCharValue;
 		 char charValues; 
-		System.out.println("Carrying values " + integer);
+	//	System.out.println("Carrying values " + integer);
 		 for(int index = 0; index< stringInt.length(); index++ ) {
 			 charValues = stringInt.charAt(index); 
 			 tempCharValue = String.valueOf(charValues);
