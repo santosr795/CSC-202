@@ -51,8 +51,6 @@
 		}
 		BigInt(int Integer){
 			set(String.valueOf(Integer));
-			
-			
 		}
 			
 		public BigInt add(BigInt anInteger) {
@@ -157,8 +155,9 @@
 		}
 		public BigInt divide(BigInt integer) {
 			BigInt answer; 
+			//Print("", this.bigArray); 
 			answer = this.dividing(integer); 
-			return null; 
+			return answer; 
 		}
 		private BigInt adding(BigInt integer){
 			BigInt returnValue;  
@@ -166,7 +165,7 @@
 			 int theLengthOfAnArray = 0; 
 			 if(this.bigArray.size() > integer.bigArray.size()) {
 				 theLengthOfAnArray = this.bigArray.size();
-			 }
+			   }
 			 else {
 				 theLengthOfAnArray = integer.bigArray.size();
 			 }
@@ -438,11 +437,55 @@
 		 // Print("this return Value of Multiplying method",answer);
 			 return returnValue; 
 	 }
+	private BigInt mode(BigInt integer) {
+			BigInt checker = new BigInt(0), previousChecker = new BigInt(0), 
+					increase= new BigInt(0), previousIncrement = new BigInt(0), numerator = this,
+					denominator = integer, answer = new BigInt(0); 
+			int index = 0, i = 0; 
+			if(this.bigArray.equals(integer.bigArray)) {
+				//System.out.println("They are Equals"); 
+				return answer = new BigInt(0);
+			}
+			else {
+			ArrayList<BigInt> numeratorValues = new ArrayList<BigInt>(); 
+				while(denominator.equalsOrGreater(numerator) == false) {
+					increase = increment(index); 
+					index ++; 
+					checker = increase.multiply(denominator); 
+					//System.out.println("This is checker Value " + checker);
+					if (checker.greater(numerator) ==true) {
+						System.out.println("Numerator value " + numerator + "\n previousChecker Value  " + previousChecker );
+						numerator = numerator.subtracting(previousChecker); 
+						index = 0; 
+						numeratorValues.add(i, previousIncrement ); 
+						
+						i++;  
+						System.out.println("dividing numerator value " + numerator);
+						previousChecker = new BigInt(0);
+						previousIncrement = new BigInt(0);  
+						//System.exit(0);
+					}
+					
+					previousIncrement = new BigInt(increase); 
+					previousChecker = new BigInt(checker); 
+	//				if(index == 8 ) {
+	//					System.exit(0);
+	//				}
+				}
+			
+			}
+			return numerator; 
+		}
 	private BigInt dividing(BigInt integer) {
 		BigInt checker = new BigInt(0), previousChecker = new BigInt(0), 
 				increase= new BigInt(0), previousIncrement = new BigInt(0), numerator = this,
-				denominator = integer;
+				denominator = integer, answer = new BigInt(0); 
 		int index = 0, i = 0; 
+		if(this.bigArray.equals(integer.bigArray)) {
+			System.out.println("They are Equals"); 
+			return answer = new BigInt(1);
+		}
+		else {
 		ArrayList<BigInt> numeratorValues = new ArrayList<BigInt>(); 
 			while(denominator.equalsOrGreater(numerator) == false) {
 				increase = increment(index); 
@@ -450,7 +493,7 @@
 				checker = increase.multiply(denominator); 
 				//System.out.println("This is checker Value " + checker);
 				if (checker.greater(numerator) ==true) {
-					System.out.println("Numerator value " + numerator + "\n previousChecker Value  " + previousChecker );
+					//System.out.println("Numerator value " + numerator + "\n previousChecker Value  " + previousChecker );
 					numerator = numerator.subtracting(previousChecker); 
 					index = 0; 
 					numeratorValues.add(i, previousIncrement ); 
@@ -468,43 +511,18 @@
 //					System.exit(0);
 //				}
 			}
-			BigInt answer = new BigInt(0); 
+		
+		
 		
 			for(index = 0; index< numeratorValues.size(); index++ ) {
 				//System.out.println("The Values inside the Array " + numeratorValues.get(index));
 				 answer = answer.adding(numeratorValues.get(index));  
 			}
+		}
 			System.out.println("The answer before return " + answer);
 		return answer;
 	}
-		//System.out.println(this.bigInt + integer.bigInt);
-//		
-//		int multiplier = Math.abs(Integer.parseInt(integer.toString())),
-//			diviser = Math.abs(Integer.parseInt(this.toString())),
-//			checker = 0, previousChecker = 0,previousIncrement = 0, increment = 0, index = 0,
-//			answer = 0 ; 
-//		System.out.println(diviser +" " + multiplier);
-//	
-//		while(multiplier < diviser) {
-//			
-//			increment = (int) Math.pow(2,index); 
-//			//System.out.println(increment);
-//			index ++; 
-//			checker = increment * multiplier; 
-//			System.out.println(checker); 
-//			if(checker > diviser ) {
-//				System.out.println(previousIncrement + " Increment " );
-//				diviser = diviser - previousChecker;
-//				index = 0; 
-//				System.out.println("Diviser "+diviser);
-//				previousChecker  = 0; 
-//			}
-//			previousIncrement = increment; 
-//			previousChecker = checker; 
-//		}
-//	
-		
-		private boolean greater(BigInt integer) {
+	private boolean greater(BigInt integer) {
 			return Math.abs(Integer.parseInt(this.toString())) > Math.abs(Integer.parseInt(integer.toString())); 
 		}
 	private boolean equalsOrGreater(BigInt integer) {
@@ -659,7 +677,7 @@
 					return number; 
 		}
 		private void Print( String message , ArrayList<Integer> integer) {
-		
+			System.out.println(this.bigArray);
 				String  newString= ""; 
 				//BigInt b1; 
 				 int i = integer.size() -1; 
