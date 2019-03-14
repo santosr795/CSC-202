@@ -147,10 +147,10 @@
 			System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
 			b3 = b1.multiply(b2);
 			System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-			//b3 = b1.divideBy(b2);
-			//System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-			//b3 = b1.modulus(b2);
-			//System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
+			b3 = b1.divideBy(b2);
+			System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
+			b3 = b1.modulus(b2);
+			System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
 			b1 = new BigInt("-200");
 	    	b2 = new BigInt("-0");
 	    	b3 = b1.add(b2);
@@ -159,10 +159,10 @@
 			System.out.println("differance b3 is " + b1 +" - " + b2 + " = " + b3);
 			b3 = b1.multiply(b2);
 			System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
-			//b3 = b1.divideBy(b2);
-			//System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
-			//b3 = b1.modulus(b2);
-			//System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
+			b3 = b1.divideBy(b2);
+			System.out.println("quotient b3 is " + b1 +" / " + b2 + " = " + b3);
+			b3 = b1.modulus(b2);
+			System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
 			b1 = new BigInt("-0");
 	    	b2 = new BigInt("200");
 	    	b3 = b1.add(b2);
@@ -236,7 +236,7 @@
 			b3 = b1.modulus(b2);
 			System.out.println("modulus b3 is " + b1 +" mod " + b2 + " = " + b3);
 			b1 = new BigInt("-200111111111111111199999999");
-			b2 = new BigInt("3333333333333388888888888888888888555555555555555555555555");
+			b2 = new BigInt("3333333333333388888888888855555");
 			System.out.println("\nb1 is " + b1);
 			System.out.println("b2 is " + b2);
 			b3 = b1.add(b2);
@@ -246,7 +246,7 @@
 			b3 = b1.multiply(b2);
 			System.out.println("product b3 is " + b1 +" * " + b2 + " = " + b3);
 			
-			b1 = b3.divideBy(b2);
+			//b1 = b3.divideBy(b2);
 			System.out.println("I should get back the same b1 I started with");
 			System.out.println("quotient b1 is " + b3 +" / " + b2 + " = " + b1);
 			b3 = b1.modulus(b2);
@@ -370,7 +370,7 @@
 		BigInt(BigInt integer){
 
 			String i = integer.toString();
-			System.out.println(i);
+			//System.out.println(i);
 			set(i); 
 			
 		}
@@ -672,7 +672,7 @@
 					 	answer.add(index,newValue); 
 				  }
 			 }
-		 }
+		 }						
 		 for(int index = 0; index < theLengthOfAnArray -1; index++) {
 			 //System.out.println("Hello There");
 			 if(answer.get(answer.size()-1) == 0) {
@@ -695,7 +695,7 @@
 //		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
 //			 returnValue.positive=false;
 //		 }
-//		 
+//		 																				
 			
 			 
 		 return returnValue; 
@@ -794,27 +794,30 @@
 	private BigInt mode(BigInt integer) {
 			BigInt checker = new BigInt(0), previousChecker = new BigInt(0), 
 					increase= new BigInt(0), previousIncrement = new BigInt(0), numerator = this,
-					denominator = integer, answer = new BigInt(0); 
+					denominator = integer, answer = new BigInt(0), zero = new BigInt(0); 
 			int index = 0, i = 0; 
+			if(integer.bigArray.equals(zero.bigArray)) {
+				return answer = new BigInt (0); 
+			}
 			if(this.bigArray.equals(integer.bigArray)) {
-				System.out.println("They are Equals"); 
+				//System.out.println("They are Equals"); 
 				return answer = new BigInt(0);
 			} 
-			else {
+			else { 
 			ArrayList<BigInt> numeratorValues = new ArrayList<BigInt>(); 
-				while(denominator.equalsOrGreater(numerator) == false) {
+				while(numerator.equalsOrGreater(denominator) == false) {
 					increase = increment(index); 
 					index ++; 
 					checker = increase.multiply(denominator); 
 					//System.out.println("This is checker Value " + checker);
 					if (checker.greater(numerator) ==true) {
-						System.out.println("Numerator value " + numerator + "\n previousChecker Value  " + previousChecker );
+						//System.out.println("Numerator value " + numerator + "\n previousChecker Value  " + previousChecker );
 						numerator = numerator.subtracting(previousChecker); 
 						index = 0; 
 						numeratorValues.add(i, previousIncrement ); 
 						
 						i++;  
-						System.out.println("dividing numerator value " + numerator);
+					//	System.out.println("dividing numerator value " + numerator);
 						previousChecker = new BigInt(0);
 						previousIncrement = new BigInt(0);  
 						//System.exit(0);
@@ -833,15 +836,20 @@
 	private BigInt dividing(BigInt integer) {
 		BigInt checker = new BigInt(0), previousChecker = new BigInt(0), 
 				increase= new BigInt(0), previousIncrement = new BigInt(0), numerator = this,
-				denominator = integer, answer = new BigInt(0); 
+				denominator = integer, answer = new BigInt(0), zero = new BigInt(0); 
 		int index = 0, i = 0; 
+		Print("Entering numerator ", this.bigArray);
+		Print("Entering denominator " ,integer.bigArray); 
+		if(integer.bigArray.equals(zero.bigArray)) {
+			return answer = new BigInt (0); 
+		}
 		if(this.bigArray.equals(integer.bigArray)) {
-			System.out.println("They are Equals"); 
+			//System.out.println("They are Equals"); 
 			return answer = new BigInt(1);
 		}
 		else {
 		ArrayList<BigInt> numeratorValues = new ArrayList<BigInt>(); 
-			while(denominator.equalsOrGreater(numerator) == false) {
+			while(numerator.equalsOrGreater(denominator) == false) {
 				increase = increment(index); 
 				index ++; 
 				checker = increase.multiply(denominator); 
@@ -853,17 +861,19 @@
 					numeratorValues.add(i, previousIncrement ); 
 					
 					i++;  
-					System.out.println("dividing numerator value " + numerator);
+					//System.out.println("dividing numerator value " + numerator);
 					previousChecker = new BigInt(0);
 					previousIncrement = new BigInt(0);  
 					//System.exit(0);
 				}
-				
+				//System.out.println(index);
 				previousIncrement = new BigInt(increase); 
 				previousChecker = new BigInt(checker); 
-//				if(index == 8 ) {
-//					System.exit(0);
-//				}
+			if(index == 15 ) {
+					System.exit(0);
+				}
+				
+				//System.out.println(checker);
 			}
 		
 		
@@ -873,15 +883,44 @@
 				 answer = answer.adding(numeratorValues.get(index));  
 			}
 		}
-			System.out.println("The answer before return " + answer);
+		//	System.out.println("The answer before return " + answer);
 		return answer;
 	}
+	
 	private boolean greater(BigInt integer) {
-			return Math.abs(Integer.parseInt(this.toString())) > Math.abs(Integer.parseInt(integer.toString())); 
+			int numOne = returnInteger(this.bigArray); 
+			int numTwo = returnInteger(integer.bigArray); 
+			if(numOne > numTwo){
+			return true; 
+			}
+			else {
+			return false; 
+			}
+			 
 		}
+		
 	private boolean equalsOrGreater(BigInt integer) {
-		return Math.abs(Integer.parseInt(this.toString())) >= Math.abs(Integer.parseInt(integer.toString())); 
+		int numOne, numTwo; 
+		
+			 numOne = returnInteger(this.bigArray); 
+			 numTwo = returnInteger(integer.bigArray); 
+			 if(numOne >= numTwo){
+			 return true; 
+			 }
+			 else{
+			 return false; 
+			 }
+			 
+		
 	}
+	
+	/*private boolean greater(BigInt integer) {
+		return Math.abs(Integer.parseInt(this.toString())) > Math.abs(Integer.parseInt(integer.toString())); 
+	}
+/*private boolean equalsOrGreater(BigInt integer) {
+	return Math.abs(Integer.parseInt(this.toString())) >= Math.abs(Integer.parseInt(integer.toString())); 
+}
+*/
 	private BigInt increment(int integer) {
 		int answer=0;
 		BigInt returnValue; 
