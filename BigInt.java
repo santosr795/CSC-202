@@ -460,21 +460,18 @@
 			BigInt answer; 
 			answer = this.multiplying(integer); 
 			
-			 if(this.bigArray.size()== integer.bigArray.size()  && this.positive==false && Math.abs(Integer.parseInt(this.bigInt)) > Math.abs(Integer.parseInt(integer.bigInt))) {
-			 answer.positive = false; 
-		 }
-		 else if(integer.bigArray.size() == this.bigArray.size() && integer.positive==false && Math.abs(Integer.parseInt(integer.bigInt)) > Math.abs(Integer.parseInt(this.bigInt))) {
-			 answer.positive = false; 
-		 }
-		 if(this.positive == false && integer.positive == false) {
-			 answer.positive = false; 
-		 }
-		 else if(integer.positive == false && integer.bigArray.size() > this.bigArray.size()) {
-			 answer.positive=false;
-		 }
-		 else if(this.positive == false && this.bigArray.size() > integer.bigArray.size()) {
-			 answer.positive=false;
-		 }
+			if( this.positive == false && integer.positive== true ) {
+				answer.positive = false; 
+			}
+			else if(this.positive== false && integer.positive ==false) {
+				answer.positive = true; 
+			}
+			else if(this.positive == true && integer.positive== false ) {
+				answer.positive = false; 
+			} 
+			else if(this.positive == true && integer.positive==true ) {
+				answer.positive = true; 
+			}
 			 
 			return answer; 
 		}
@@ -838,8 +835,8 @@
 				increase= new BigInt(0), previousIncrement = new BigInt(0), numerator = this,
 				denominator = integer, answer = new BigInt(0), zero = new BigInt(0); 
 		int index = 0, i = 0; 
-		Print("Entering numerator ", this.bigArray);
-		Print("Entering denominator " ,integer.bigArray); 
+	//	Print("Entering numerator ", this.bigArray);
+		//Print("Entering denominator " ,integer.bigArray); 
 		if(integer.bigArray.equals(zero.bigArray)) {
 			return answer = new BigInt (0); 
 		}
