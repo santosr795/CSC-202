@@ -1,0 +1,505 @@
+	import java.lang.reflect.Array;
+	import java.util.*;
+
+import javax.print.attribute.standard.MediaSize.Other;
+public class ArrayWithExponentAsIndexPolynomial implements PolynomialInterface {
+		private  int sizeOfArray =0; 
+		private  ArrayList<Integer > arrayPoly = new ArrayList<Integer > (); 
+		//static int [] arrayOne = {0,0,0,0,0,0,0,0};  
+		 /*
+		  * remove the static from the arrayList 
+		  * page four in the guy of how to used the Interface. 
+		  */
+		private String propVariable; 
+		public static void main(String []args) {
+			
+//			String s = "44";
+			//	String s = "44x";
+			//	String s = "4x^4+3x^3-3";
+			//	String s = "4x^3-3x^11";
+			//	String s = "44x^6-3x^10+4x^4";
+			//	String s = "25x^5-3x^13+4x^12-78";
+			//	String s ="34x^15-44x^14-3x^12+4x^31-78";
+			//	String s1 = "44";
+		//	String s2 = "44x-78";
+			//	String s1 = "4x^4+3x^3-3";
+			//	String s2 = "4x^6-3x^12";
+		//	String s1 = "4x^14-3x^12+4x^4+78";
+		//	String s2 = "-4x^4-3x^12+4x^17-78";
+				String s1 = "4x^4+3x^11+4x^10";
+			//	String s2 = "5x^14-3x^12+4x^19-78";
+			//  String s1 = "4x^5+4x^4-3x^12-4x^41-78";
+			  String s2 = "-4x^4+3x^12+4x^41+78";
+			// Four implementations of the interface
+			PolynomialInterface exAsIndex1 = new ArrayWithExponentAsIndexPolynomial(s1);
+		PolynomialInterface exAsIndex2 = new ArrayWithExponentAsIndexPolynomial(s2);
+			PolynomialInterface exAsIndex3; 
+		String s3 = exAsIndex1.toString(); 
+	//	System.out.println(s3);
+			//exAsIndex2.toString(); 
+			exAsIndex3 = exAsIndex1.subtract(exAsIndex2);
+			System.out.println(exAsIndex3.toString());
+		}
+		ArrayWithExponentAsIndexPolynomial(){
+			//Defult
+			
+		}
+		ArrayWithExponentAsIndexPolynomial(String input){
+			set (input); 
+		}
+		ArrayWithExponentAsIndexPolynomial(ArrayList input){
+		}
+		ArrayWithExponentAsIndexPolynomial(LinkedList  input){
+		}
+		//begining of implementation
+		public PolynomialInterface add(PolynomialInterface other) {
+			//PolynomialInterface answer; 
+			ArrayWithExponentAsIndexPolynomial answer ;
+
+			ArrayWithExponentAsIndexPolynomial numb1 = (ArrayWithExponentAsIndexPolynomial)this;
+			ArrayWithExponentAsIndexPolynomial numb2 = (ArrayWithExponentAsIndexPolynomial)other;
+		//	/*
+//			System.out.println("\nthis is this \n"+numb1.arrayPoly + "  "); 
+//			System.out.println("\nthis is other \n"+numb2.arrayPoly + " "); 
+		//	*/ 
+			System.out.println("Implemantation add \n------------"); 
+				answer =numb1.add(numb2); 
+				System.out.println(answer.arrayPoly + "\n---------------");
+			return answer; 
+		}
+		private ArrayWithExponentAsIndexPolynomial add(ArrayWithExponentAsIndexPolynomial other) {
+			ArrayWithExponentAsIndexPolynomial answer = new ArrayWithExponentAsIndexPolynomial(); 
+			int bigArraySize = 0, thisValue = 0, otherValue =0 , sum =0; 
+			if(this.getSize() > other.getSize()) {
+					bigArraySize = this.getSize(); 
+			}
+			else if(this.getSize() < other.getSize()) {
+				bigArraySize = other.getSize(); 	
+			}
+			else {
+				//IF they have the same sizes 
+				bigArraySize = this.getSize(); 
+			}
+			for(int index =0; index < bigArraySize; index++) {
+				//System.out.println("\n\n\n ArraySize Value "+ bigArraySize + "\n\nthis.getSize " + this.getSize() + "\n\nOther.getSize " + other.getSize() );
+				if(index >= this.getSize() && index<other.getSize() ) {
+					answer.arrayPoly.add(index, other.arrayPoly.get(index));
+				}
+				else if(index >= other.getSize() && index<this.getSize()) {
+					answer.arrayPoly.add(index, this.arrayPoly.get(index));
+				}
+				else {
+					
+					thisValue = this.arrayPoly.get(index); 
+					otherValue = other.arrayPoly.get(index); 
+//					System.out.println("\n\nThisValue " + thisValue + "\n\nOtherValue " +otherValue);
+//					System.out.println("Index " + index);
+					sum = thisValue + otherValue; 
+//					System.out.println("\n\n Sum before going into the array " + sum );
+					answer.arrayPoly.add(index, sum); 
+				}
+			
+					
+			}
+//			System.out.println("This array \n\n"+this.arrayPoly +"\nOther array\n\n" + other.propVariable  );
+//			System.out.println("\n\n\n Add() For array before return values \n\n" + answer.arrayPoly +"\n\n"); 
+			return answer; 
+		}
+		public PolynomialInterface subtract(PolynomialInterface other) {
+			//PolynomialInterface answer; 
+			ArrayWithExponentAsIndexPolynomial answer ;
+
+			ArrayWithExponentAsIndexPolynomial numb1 = (ArrayWithExponentAsIndexPolynomial)this;
+			ArrayWithExponentAsIndexPolynomial numb2 = (ArrayWithExponentAsIndexPolynomial)other;
+			answer = numb1.subtract(numb2);
+			System.out.println("------------\nImplementation Substract \n\n\n" + answer.arrayPoly + "\n-------------------------");
+			return answer ; 
+		}
+		private ArrayWithExponentAsIndexPolynomial subtract(ArrayWithExponentAsIndexPolynomial other) {
+			ArrayWithExponentAsIndexPolynomial answer = new ArrayWithExponentAsIndexPolynomial(); 
+			int bigArraySize = 0, thisValue = 0, otherValue =0 , difference =0; 
+
+			if(this.getSize() > other.getSize()) {
+				bigArraySize = this.getSize(); 
+			}
+			else if(this.getSize() < other.getSize()) {
+				bigArraySize = other.getSize(); 
+				
+			}
+			else {
+				//IF they have the same sizes 
+				bigArraySize = this.getSize(); 
+			}			
+			for(int index =0; index < bigArraySize; index++) {
+				//System.out.println("\n\n\n ArraySize Value "+ bigArraySize + "\n\nthis.getSize " + this.getSize() + "\n\nOther.getSize " + other.getSize() );
+				if(index >= this.getSize() && index<other.getSize() ) {
+					answer.arrayPoly.add(index, other.arrayPoly.get(index));
+				}
+				else if(index >= other.getSize() && index<this.getSize()) {
+					answer.arrayPoly.add(index, this.arrayPoly.get(index));
+				}
+				else {
+					
+					thisValue = this.arrayPoly.get(index); 
+					otherValue = other.arrayPoly.get(index); 
+					if( otherValue < 0 && thisValue != 0) {
+					//	System.out.println("-------------\nAbsolute value of " +otherValue);
+						otherValue = Math.abs(otherValue); 
+						difference = thisValue + otherValue; 
+					}
+					else {
+//						System.out.println("\n\nThisValue " + thisValue + "\n\nOtherValue " +otherValue);
+//						System.out.println("Index " + index);
+						difference = thisValue + otherValue; 
+//						System.out.println("\n-----------------\n Difference before going into the array " + difference +"\n----------------------" );
+					}
+					answer.arrayPoly.add(index, difference); 
+				}
+			
+					
+			}
+			System.out.println(answer.arrayPoly);
+			return answer;
+		}
+		public void readPolynomial() {
+			this.toString();
+			System.out.println("\nThis is the readPolynomial method " + 	this.getArrayList() );
+		}
+			
+		
+		public String toString() {
+			String answer =""; 
+
+			for(int index = this.arrayPoly.size()-1; index >=0; index--) {
+				if(index == 0 && this.arrayPoly.get(index) != 0) {
+					if(this.arrayPoly.get(index) < 0) {
+						answer = answer.substring(0, answer.length()-1);
+					//			System.out.println(this.arrayPoly.get(index));
+; 
+						answer = answer + this.arrayPoly.get(index); 
+					}
+
+					else {
+						answer = answer + this.arrayPoly.get(index);
+					}
+				}
+				else if(this.arrayPoly.get(index) != 0){
+					if(this.arrayPoly.get(index) < 0 ) {
+						//System.out.println(this.arrayPoly.get(index));
+						answer = answer.substring(0, answer.length()-1);
+						answer= answer +this.arrayPoly.get(index)+"x^" +index +"+";
+					}
+					else {
+					//	System.out.println(this.arrayPoly.get(index));
+
+						answer= answer + this.arrayPoly.get(index)+"x^" +index +"+";
+					}
+				}
+			}
+			if(this.arrayPoly.get(0) ==0) {
+				answer = answer.substring(0, answer.length()-1); 
+			}
+			//System.out.println(""+this.arrayPoly );
+			return answer; 
+		}
+		
+		
+		//End of Implementation 
+		private ArrayList<Integer> createArray(int size) {
+			ArrayList<Integer> tempArray = new ArrayList<Integer>(); 
+			
+			for(int index =0; index < size;index++) {
+				tempArray.add(index, 0); 
+			}
+//			System.out.println("---------------------\nAn array was made\n---------------------- ");
+			this.setSizeOfArray(size);
+			return tempArray; 
+
+		}
+		private void setSizeOfArray(int size) {
+			this.sizeOfArray = size; 
+		}
+		
+		private ArrayList<Integer> expendArray(int size) {
+			ArrayList <Integer> answer = new ArrayList<Integer>(); 
+//			System.out.println("---------------\n the array was enter in extendArray\n" +this.arrayPoly + "\n----------------");
+			for(int index = 0; index < size; index++) {
+				if(index < this.arrayPoly.size()) {
+					answer.add(index, this.arrayPoly.get(index)); 
+				}
+				else {
+				this.arrayPoly.add(index, 0); 
+				}
+			}
+//			System.out.println("\n----------------\nArray after being extend \n" + this.arrayPoly + "\n-----------------");
+			this.setSizeOfArray(size);
+			return this.arrayPoly; 
+		}
+		private  void set(String string) 	{
+			ArrayWithExponentAsIndexPolynomial temp = new ArrayWithExponentAsIndexPolynomial();
+			ArrayList<Integer> tempArray = new ArrayList<Integer>(); 
+//			System.out.println("Setting a new string ");
+			int position = 0, value = 0,slider =0; 
+			char variable; 
+			String part, newString, holder; 
+			
+			for(int index = 0; index < string.length(); index ++) {
+				variable = string.charAt(index);
+				
+				if(variable == 94) {
+					
+					part = string.substring(0, index);
+				//	System.out.println(part + " ^ ");
+					int innerSlider = 0; 
+					for(int innerIndex =0; innerIndex < part.length(); innerIndex++) {
+						variable = part.charAt(innerIndex); 
+						if(variable > 58) {
+						//	System.out.println(part);
+							part = part.substring(0, index-1); 
+						//	System.out.println(part+" inner Value ");
+							value = Integer.parseInt(part); 
+							}
+						}
+						part = string.substring(index+1, string.length()); 
+						int innerIndex = 0; 
+						boolean fall = true; 
+						//System.out.println(part + " Parts ");
+						if(part.length() != 1) {
+							if(1 == part.length()-1) {
+							//	System.out.println(string +"lol");
+								value= Integer.parseInt(string.substring(1,2)); 
+								position = Integer.parseInt(part);
+								if(this.getSize() == 0 ) {
+									this.arrayPoly=this.createArray(position+1); 
+								}
+								else if(position   >this.getSize()) {
+									this.arrayPoly=this.expendArray(position+1); 
+								}
+//								System.out.println("adding " + value +" to position " +
+//								position + "\nLocation One \n------------------" );
+								this.arrayPoly.remove(position);
+								this.arrayPoly.add(position, value); 
+								string = "0"; 
+								position = 0; 
+								value = 0;
+								fall = false;
+								//System.exit(0);
+				
+								 
+							}
+							while(fall ==true){
+							
+								
+								//System.out.println(part);
+								//System.out.println(innerIndex);
+								variable = part.charAt(innerIndex); 
+							
+								if(variable == 43) {
+									
+									part = part.substring(0,innerIndex); 
+									if(innerIndex == 3) {
+										string = string.substring(index+4, string.length()); 
+									}
+									else if(innerIndex == 2) {
+										string = string.substring(index+3, string.length()); 
+									}
+									else if(innerIndex ==1) {
+										string = string.substring(index+2, string.length()); 
+									}
+									index =0;
+									//string = string.substring(index+2, string.length()); 
+								/*	System.out.println("Finding position and the rest of the formula " + part +" " + string);
+									System.out.println("This is the size of innerIndex " + innerIndex);
+									System.out.println("position of index" + index);
+									*/
+									fall = false; 
+									position = Integer.parseInt(part); 
+									//System.out.println("Position "+ position + " \nvalue " + value +" before going");
+									if(this.getSize() == 0 ) {
+										this.arrayPoly=this.createArray(position+1); 
+									}
+									else if(position   >this.getSize()) {
+										this.arrayPoly=this.expendArray(position+1); 
+									}
+//									System.out.println("adding " + value +" to position " +
+//									position + "\nLocation One \n------------------" );
+									this.arrayPoly.remove(position);
+									this.arrayPoly.add(position, value); 
+									position = 0; 
+									value = 0;
+									//System.out.println(arrayPoly); 
+								}
+								else if(variable == 45) {
+									//System.out.println("Inside the while look whats the value of part " + part);
+									part = part.substring(0,innerIndex); 
+									if(innerIndex == 3) {
+										string = string.substring(index+4, string.length());
+										//System.out.println("New String after cutting " + string);
+									}
+									else if(innerIndex == 2) {
+										string = string.substring(index+3, string.length()); 
+									}
+									else if(innerIndex ==1) {
+										string = string.substring(index+2, string.length()); 
+									}
+									index =0;
+
+									//System.out.println("This is the size of innerIndex " + innerIndex);
+									//System.out.println("position of index" + index);
+									//string = string.substring(index+2, string.length()); 
+									//System.out.println("Finding position and the rest of the formula " + part +" \nstring " + string);
+									fall = false; 
+									position = Integer.parseInt(part); 
+									
+								//	System.out.println(this.getSize());
+									if(this.getSize() == 0 ) {
+										this.arrayPoly= this.createArray(position+1); 
+									}
+									else if(position > this.getSize()) {
+										this.arrayPoly = this.expendArray(position+1); 
+									}
+									//System.out.println(temp.arrayPoly);
+//									System.out.println("adding " + value +" to position " +
+//									position +"\nLocation Two\n------------------");
+
+									//System.out.println("Position "+ position + " \nvalue " + value +" before going");
+									this.arrayPoly.remove(position);
+									this.arrayPoly.add(position, value); 
+									position = 0; 
+									value = 0;
+									//System.out.println(arrayPoly); 
+
+								}
+								innerIndex++; 
+							
+							}
+							//System.out.println("Position "+ position  " value " + value " before going");
+//							position = Integer.parseInt(part); 
+//							System.out.println("Position "+ position + " \nvalue " + value +" before going");
+	//
+//							arrayPoly.add(position, value); 
+//							position = 0; 
+//							value = 0; 
+						}
+						else {
+							position = Integer.parseInt(part); 
+						//	System.out.println("Position "+ position+  " value " + value+ " before going");
+							if(this.getSize() == 0 ) {
+								this.arrayPoly= this.createArray(position+1); 
+							}
+							else if(position  >this.getSize()) {
+								this.arrayPoly = this.expendArray(position+1); 
+							}
+//							System.out.println("adding " + value +" to position " + 
+//							position +"\nLocation three\n------------------" );
+
+							this.arrayPoly.remove(position);
+							this.arrayPoly.add(position, value); 
+							position = 0; 
+							value = 0;
+						}
+							if(index  == string.length()) {
+					}
+							index =0; 
+					//System.out.println("new String after if " + string );
+					}//End IF 
+				
+					else if(variable == 45 && index != 0 || variable == 43 && index !=0) {
+						part = string.substring(0, index);
+
+						for(int innerIndex =0; innerIndex < part.length(); innerIndex++) {
+							variable = part.charAt(innerIndex); 
+							if(variable > 58) {
+						//		System.out.println(part);
+								part = part.substring(0, index-1); 
+						//		System.out.println(part+" else iner inner");
+								value = Integer.parseInt(part); 
+								
+								}
+							}
+//						System.out.println("adding " + value +" to position " + position
+//								+"\nLocation four\n------------------");
+						if(this.arrayPoly.isEmpty()) {
+							this.arrayPoly = this.createArray(2); 
+						}
+						this.arrayPoly.remove(1); 
+						this.arrayPoly.add(1,value);
+						char sign = string.charAt(0); 
+						if(sign ==43) {
+							value = Integer.parseInt(string.substring(index, string.length()));
+						}
+						else {
+						value = Integer.parseInt(string.substring(index, string.length()));
+						}
+//						System.out.println("adding " + value +" to position " + position 
+//								+"\nLocation five\n------------------");
+
+						this.arrayPoly.remove(0); 
+						this.arrayPoly.add(0, value);
+					}//End if else	
+					
+		//		System.out.println(variable);
+			//			System.out.println("Reee");	 
+						try {
+						
+							char sign = string.charAt(0); 
+							if(sign ==43) {
+								value = Integer.parseInt(string);
+							}
+							else {
+							value = Integer.parseInt(string);
+							}
+//							System.out.println("adding " + value +" to position " + position 
+//									+"\nLocation six\n------------------");
+							
+							if(this.arrayPoly.isEmpty()) {
+								this.arrayPoly.add(0, Integer.parseInt(string));
+							}
+							else {
+								this.arrayPoly.remove(0); 
+								this.arrayPoly.add(0, value);
+							}
+							}
+						
+						
+						catch(NumberFormatException exception ) {
+							
+						}
+
+				
+				}//End For() loop. 
+				
+			
+			System.out.print("set Method final answer for the array"+this.arrayPoly +"\n");
+		
+		}
+		public int getSize() {
+			return this.arrayPoly.size(); 
+		}
+	
+		public ArrayList<Integer> getArrayList() {
+			
+			return this.arrayPoly; 
+		}
+//		public Polynomia  add(d)
+//		private Polynomia adding(Polynomia other) {
+//			Polynomia answer = new Polynomia(); 
+//			int smallArraySize =0; 
+//			if(this.arrayPoly.size() > other.arrayPoly.size()) {
+//				smallArraySize = other.arrayPoly.size(); 
+//			}
+//			else {
+//				smallArraySize = this.arrayPoly.size(); 
+//			}
+//			for(int index = 0; index < smallArraySize -1; index++) {
+//				int thisValue = this.arrayPoly.get(index); 
+//				int otherValue = other.arrayPoly.get(index); 
+//				answer.arrayPoly.add(index, thisValue + otherValue); 
+//			}
+//			System.out.println(answer.arrayPoly);
+//			return other;
+//			
+//		}
+	}
+
+
